@@ -1,0 +1,19 @@
+{
+  "name": "vashipirogi",
+  "version": "1.0.0",
+  "description": "web site for delivery pies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilgeion86/vashipirogi.git"
+  },
+  "author": "Kopeyka Vyacheslav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilgeion86/vashipirogi/issues"
+  },
+  "homepage": "https://github.com/ilgeion86/vashipirogi#readme"
+}
