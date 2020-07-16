@@ -1,2 +1,4 @@
+certs/forBrow.pfx
+certs/private.key
 node_modules/
 .env

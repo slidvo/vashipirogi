@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (products) {%>
+        <% for(let i=0; i<products.length;i++){%>
+            <% if (products[i]['cakeType'] == 0){%>
+                <div>
+                    <img src="<%=products[i]['img']%>" alt="">
+                    <h2>
+                        <%=products[i]["name"]%>
+                    </h2>
+                </div>
+                <%}else {%>
+                    <h1>ATTENTION</h1>
+                    <%}%>
+                        <%}%>
+                            <%}%>
+</body>
+
+</html>
