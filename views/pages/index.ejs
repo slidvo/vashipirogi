@@ -18,24 +18,28 @@
 <body>
     <% if (products) {%>
         <% for(let i=0; i<products.length;i++){%>
-            <% if (products[i]['cakeType'] == 0){%>
-                <div>
-                    <img src="<%=products[i]['img']%>" alt="">
-                    <h2>
-                        <%=products[i]["name"]%>
-                            <%let pId = products[i]["id"]%>
-                                <% if (prices[pId]){%>
-                                    <%=prices[pId]["price"]["1"]%>
-                                        <%=prices[pId]["price"]["1.5"]%>
-                                            <%=prices[pId]["price"]["2"]%>
-                                                <%=prices[pId]["price"]["2.5"]%>
-                                                    <%=prices[pId]["price"]["3"]%>
-                                                        <%}%>
-                    </h2>
-                </div>
+
+            <div>
+                <img src="<%=products[i]['img']%>" alt="">
+                <h2>
+                    <%=products[i]["name"]%>
+                        <%let pId = products[i]["id"]%>
+                            <% if (prices[pId]){%>
+                                <%=prices[pId]["price"]["1"]%>
+                                    <%=prices[pId]["price"]["1.5"]%>
+                                        <%=prices[pId]["price"]["2"]%>
+                                            <%=prices[pId]["price"]["2.5"]%>
+                                                <%=prices[pId]["price"]["3"]%>
+                                                    <%}%>
+                </h2>
+                <h2>
+                    <%= products[i]["filling"]%>
+                </h2>
+                <br>
+            </div>
+
+            <%}%>
                 <%}%>
-                    <%}%>
-                        <%}%>
 </body>
 
 </html>
