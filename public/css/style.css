@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: green;
+}
+
+img{
+    margin-top: 10px;
+    border-radius: 35px;
+    box-shadow: 0 0 6px black;
+    
+}
+
+span {
+    padding:1px;
+    margin-right: 2px;
+    border:2px solid burlywood;
+    border-radius: 5px;
+    color: white;
+    background-color: burlywood;
+    text-shadow: 0 0 2px black;
+}

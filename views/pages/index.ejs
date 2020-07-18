@@ -1,45 +1,40 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        img {
-            border-radius: 35px;
-            box-shadow: 0 0 8px black;
-        }
-    </style>
+    <%- include("../partials/head.ejs")%>
 </head>
 
 <body>
     <% if (products) {%>
-        <% for(let i=0; i<products.length;i++){%>
+    <% for(let i=0; i<products.length;i++){%>
+    <div>
+        <img src="<%=products[i]['img']%>" alt="">
+        <h2>
+            <%=products[i]["name"]%>
+            <%let pId = products[i]["id"]%>
+        </h2>
 
-            <div>
-                <img src="<%=products[i]['img']%>" alt="">
-                <h2>
-                    <%=products[i]["name"]%>
-                        <%let pId = products[i]["id"]%>
-                            <% if (prices[pId]){%>
-                                <%=prices[pId]["price"]["1"]%>
-                                    <%=prices[pId]["price"]["1.5"]%>
-                                        <%=prices[pId]["price"]["2"]%>
-                                            <%=prices[pId]["price"]["2.5"]%>
-                                                <%=prices[pId]["price"]["3"]%>
-                                                    <%}%>
-                </h2>
-                <h2>
-                    <%= products[i]["filling"]%>
-                </h2>
-                <br>
-            </div>
+        <h2>
+            <%= products[i]["filling"]%>
+        </h2>
 
+        <h2>
+            <% if (prices[pId]){%>
+                <span data-coast=<%=prices[pId]["price"]["1"]%>>1кг</span>
+                <span data-coast=<%=prices[pId]["price"]["1.5"]%>>1.5кг</span>
+                <span data-coast=<%=prices[pId]["price"]["2"]%>>2кг</span>
+                <span data-coast=<%=prices[pId]["price"]["2.5"]%>>2.5кг</span>
+                <span data-coast=<%=prices[pId]["price"]["3"]%>>3кг</span>
             <%}%>
-                <%}%>
+        </h2>
+        <br>
+    </div>
+
+    <%}%>
+<%}%>
 </body>
+    <script>
+
+    </script>
 
 </html>
