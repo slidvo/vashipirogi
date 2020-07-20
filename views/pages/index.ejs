@@ -5,36 +5,38 @@
 </head>
 
 <body>
-    <% if (products) {%>
-    <% for(let i=0; i<products.length;i++){%>
-    <div>
-        <img src="<%=products[i]['img']%>" alt="">
-        <h2>
-            <%=products[i]["name"]%>
-            <%let pId = products[i]["id"]%>
-        </h2>
+    <div class="grid-container">
+        <div class="header">header</div>
+        <!-- Sweet pies page start-->
+        <div class="page-1">
+            <div class="sp_title">Сладкие пироги</div>
+            <div class="sp_content">
+                <%if (products) {%>
+                    <%for(let i=0;i<11;i++) { let tmp_price;%>
 
-        <h2>
-            <%= products[i]["filling"]%>
-        </h2>
+                        <%for(let j=0; j<prices.length;j++){%>
+                            <%if(prices[j]["pId"] == products[i]["id"]) {%>
+                                <% tmp_price = prices[j]%>
+                                    <%}%>
+                                        <%}%>
+                                            <%- include( "../partials/product_card.ejs",{product:products[i],price:tmp_price})%>
+                                                <%}%>
 
-        <h2>
-            <% if (prices[pId]){%>
-                <span data-coast=<%=prices[pId]["price"]["1"]%>>1кг</span>
-                <span data-coast=<%=prices[pId]["price"]["1.5"]%>>1.5кг</span>
-                <span data-coast=<%=prices[pId]["price"]["2"]%>>2кг</span>
-                <span data-coast=<%=prices[pId]["price"]["2.5"]%>>2.5кг</span>
-                <span data-coast=<%=prices[pId]["price"]["3"]%>>3кг</span>
-            <%}%>
-        </h2>
-        <br>
+                                                    <%}%>
+            </div>
+
+        </div>
+        <!-- Sweet pies page end -->
+
+        <!-- Vegetable pies page start -->
+        <div class="page-2">page 2</div>
+        <!-- Vegetable pies page end -->
+
+        <!-- Hearty pies page start -->
+        <div class="page-3">page 3</div>
+        <!-- Hearty pies page end -->
     </div>
-
-    <%}%>
-<%}%>
 </body>
-    <script>
-
-    </script>
+<script type="text/javascript" src="js/product_card_click_handler.js"></script>
 
 </html>
