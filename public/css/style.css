@@ -1,22 +1,216 @@
 * {
     margin: 0;
     padding: 0;
-    color: green;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-img{
-    margin-top: 10px;
-    border-radius: 35px;
-    box-shadow: 0 0 6px black;
-    
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-span {
-    padding:1px;
-    margin-right: 2px;
-    border:2px solid burlywood;
-    border-radius: 5px;
-    color: white;
+.grid-container {
+    display: grid;
+    grid-template-areas: "header" "p1" "p2" "p3";
+}
+
+.header {
+    position: fixed;
+    height: 80px;
+    width: 100vw;
+    grid-area: header;
     background-color: burlywood;
-    text-shadow: 0 0 2px black;
+}
+
+.page-1 {
+    grid-area: p1;
+    display: grid;
+    grid-template-areas: "sp_title" "sp_content";
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.sp_title {
+    /* border: 1px solid black; */
+}
+
+.sp_content {
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+@media (orientation:landscape) {
+    .header {
+        position: relative;
+    }
+    .page-1 {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width:2550px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:2300px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:2150px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:1900px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:620px) {
+    .sp_content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.page-2 {
+    grid-area: p2;
+}
+
+.page-3 {
+    grid-area: p3;
+}
+
+.product-card {
+    display: grid;
+    width: 300px;
+    grid-template-areas: "photo" "." "name" "." "weights" "." "buttonAdd";
+    border: 3px solid rgba(255, 231, 204, 1);
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(107, 57, 0, 1);
+    padding-bottom: 15px;
+    background-color: rgba(255, 231, 204, 0.5);
+    margin: 10px;
+}
+
+.photo {
+    text-align: center;
+    grid-area: photo;
+}
+
+.photo>img {
+    border-radius: 12px;
+    width: 294px;
+}
+
+.name {
+    display: grid;
+    padding-left: 5px;
+    grid-area: name;
+    grid-template-areas: "productName" "." "filling";
+}
+
+.product_name {
+    grid-area: productName;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.name .filling {
+    grid-area: filling;
+}
+
+.weights {
+    margin-top: 10px;
+    padding-left: 5px;
+    text-align: center;
+    grid-area: weights;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.weights_item {
+    border: 3px solid rgba(181, 137, 87, 1);
+    ;
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.weights_item:hover {
+    background-color: tan;
+    color: white;
+}
+
+.button-add {
+    grid-area: buttonAdd;
+    margin-left: 5px;
+    margin-top: 10px;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "btn_add_text t_price tp_price ";
+}
+
+.cstyle {
+    border: 3px solid rgba(181, 137, 87, 1);
+    ;
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.btn_add_text {
+    grid-area: btn_add_text;
+    text-align: center;
+}
+
+.t-price {
+    grid-area: t_price;
+}
+
+.tp-price {
+    grid-area: tp_price;
+}
+
+.t-price,
+.tp-price {
+    display: grid;
+    /* border: 1px solid black; */
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected {
+    background-color: tan;
+    color: white;
 }
