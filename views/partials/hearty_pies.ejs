@@ -1,0 +1,21 @@
+<div class="sp_title">
+   Сытные пироги
+</div>
+<div class="sp_content">
+    <%if (products) {%>
+        <%for(let i=15;i<products.length;i++) { let tmp_price;%>
+            <% if (prices) {%>
+
+                <%for(let j=0; j<prices.length;j++){%>
+
+                    <%if(prices[j]["pId"] == products[i]["id"]) {%>
+                        <% tmp_price = prices[j]%>
+                            <%}%>
+
+                                <%}%>
+                                    <%- include( "../partials/product_card.ejs",{product:products[i],price:tmp_price})%>
+
+                                        <%}%>
+                                            <%}%>
+                                                <%}%>
+</div>
