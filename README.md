@@ -9,3 +9,5 @@ A web-site for delivery pies.
   * GIT
   * EJS
   * SSL
+  * Nodemailer - for send order info to email
+  * bot-tlegram-api - for send order info to telegram

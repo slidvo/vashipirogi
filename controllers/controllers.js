@@ -1,9 +1,25 @@
-const getRes = require("../responses/getResponses")
-this.get = Object.create(null);
-//this.post
+const responses = require("../responses/responses")
+
+
 //this.delete
-this.get.index = function(req, res) {
-    getRes.index(req, res);
+
+//GET
+let get = Object.create(null);
+get.index = function(req, res) {
+    responses.get.index(req, res);
 }
 
-module.exports.getIndex = this.get;
+module.exports.get = get;
+
+//POST
+let post = Object.create(null);
+let create = Object.create(null);
+
+create.order = function(req, res) {
+    responses.post.create.order(req, res);
+}
+
+
+
+post = { create }
+module.exports.post = post;

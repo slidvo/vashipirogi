@@ -5,35 +5,45 @@ function main() {
     Array.from(nodes).forEach((node) => {
         let cart = [];
         //console.log(node);
-        let nodeW = node.querySelectorAll("div.weights div.weights_item");
+        let node_weights = node.querySelectorAll("div.weights div.weights_item");
+        let node_weights_arr = Array.from(node_weights);
+
         let btnAdd = node.querySelector("div.button-add");
         let btnAddText = btnAdd.querySelector('div.btn_add_text');
-        let nodeW_price = btnAdd.querySelector("div.tp-price");
+        let node_weights_price = btnAdd.querySelector("div.tp-price");
 
 
-        Array.from(nodeW).forEach((elt) => {
+        node_weights_arr.forEach((elt) => {
             //click to a weight
-            elt.addEventListener("click", e => {
-                let price = elt.getAttribute("data-price");
-                if (price) {
-                    nodeW_price.textContent = price;
-                } else {
-                    nodeW_price.textContent = 'unkonwn';
-                }
-                delClassElt(nodeW, 'selected');
-                elt.classList.add('selected');
+            if (!isSelected(elt)) {
+                elt.addEventListener("click", e => {
+                    let price = elt.getAttribute("data-price");
+                    if (price) {
+                        node_weights_price.textContent = price;
+                    } else {
+                        node_weights_price.textContent = 'unkonwn';
+                    }
+                    delClassElt(node_weights, 'selected');
+                    elt.classList.add('selected');
 
-                if (btnAddText.classList.contains('selected')) {
-                    btnAddText.classList.remove('selected')
-                    btnAddText.textContent = 'В корзину';
-                }
-            })
+                    if (btnAddText.classList.contains('selected')) {
+                        btnAddText.classList.remove('selected')
+                        btnAddText.textContent = 'В корзину';
+                    }
+
+                })
+            }
         })
 
         //btnAdd handler
         btnAdd.addEventListener("click", e => {
-            btnAddText.classList.add('selected');
-            btnAddText.textContent = 'Выбрано'
+
+            node_weights_arr.forEach(elt => {
+                if (isSelected(elt)) {
+                    btnAddText.classList.add('selected');
+                    btnAddText.textContent = 'Выбрано'
+                }
+            })
         });
     })
 
@@ -49,6 +59,10 @@ function delClassElt(nodeList, classElt) {
             elt.classList.remove(classElt);
         }
     })
+}
+
+function isSelected(elt) {
+    return elt.classList.contains('selected');
 }
 
 main();

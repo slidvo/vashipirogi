@@ -2,3 +2,5 @@ certs/forBrow.pfx
 certs/private.key
 node_modules/
 .env
+configs/nmconf.js
+configs/tlgconf.js

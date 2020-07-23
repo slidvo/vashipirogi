@@ -14,31 +14,88 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(232, 172, 142, 0.2);
 }
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header" "p1" "p2" "p3";
+    grid-template-areas: "header" "p1" "p2" "p3" "footer";
+    row-gap: 15px;
 }
 
 .header {
     position: fixed;
-    height: 80px;
     width: 100vw;
     grid-area: header;
-    background-color: burlywood;
+    display: grid;
+    background: rgb(244, 244, 244);
+    background: linear-gradient(180deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%);
+    grid-row: 240px repeat(2, 50px);
+    grid-template-areas: "logo" "slogan" "header_menu";
 }
+
+.logo {
+    grid-area: logo;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+
+.logo img {
+    width: 240px;
+}
+
+.slogan {
+    grid-area: slogan;
+    font-size: 24px;
+    font-weight: bold;
+    color: whitesmoke;
+    text-shadow: 0 0 4px black;
+}
+
+.header_menu {
+    margin-top: 10px;
+    grid-area: header_menu;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.header_menu_item {}
+
+.header_menu_item:hover {}
 
 .page-1 {
     grid-area: p1;
     display: grid;
     grid-template-areas: "sp_title" "sp_content";
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 240px;
+}
+
+.page-2 {
+    grid-area: p2;
+    display: grid;
+    grid-template-areas: "sp_title" "sp_content";
+    justify-content: center;
+}
+
+.page-3 {
+    grid-area: p3;
+    display: grid;
+    grid-template-areas: "sp_title" "sp_content";
+    justify-content: center;
+}
+
+.footer {
+    grid-area: footer;
+    height: 120px;
+    background: rgb(244, 244, 244);
+    background: linear-gradient(0deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%);
 }
 
 .sp_title {
     /* border: 1px solid black; */
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .sp_content {
@@ -51,7 +108,8 @@ body {
     .header {
         position: relative;
     }
-    .page-1 {
+    .page-1,
+    .page-2 {
         margin-top: 0;
     }
 }
@@ -90,32 +148,40 @@ body {
     .sp_content {
         grid-template-columns: 1fr 1fr;
     }
+    .header {
+        top: -100px;
+    }
 }
 
 @media screen and (max-width:620px) {
     .sp_content {
         grid-template-columns: 1fr;
     }
-}
-
-.page-2 {
-    grid-area: p2;
-}
-
-.page-3 {
-    grid-area: p3;
+    .header {
+        top: -240px
+    }
+    .page-1 {
+        margin-top: 100px;
+    }
+    .header_menu_item {
+        font-size: 22px;
+    }
 }
 
 .product-card {
     display: grid;
     width: 300px;
     grid-template-areas: "photo" "." "name" "." "weights" "." "buttonAdd";
-    border: 3px solid rgba(255, 231, 204, 1);
+    border: 3px solid tan;
     border-radius: 15px;
-    box-shadow: 0 0 5px rgba(107, 57, 0, 1);
+    box-shadow: 0 0 5px rgba(232, 172, 142, 0.8);
     padding-bottom: 15px;
-    background-color: rgba(255, 231, 204, 0.5);
+    background-color: whitesmoke;
     margin: 10px;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 10px black;
 }
 
 .photo {
@@ -124,7 +190,7 @@ body {
 }
 
 .photo>img {
-    border-radius: 12px;
+    border-radius: 10px;
     width: 294px;
 }
 
@@ -149,29 +215,36 @@ body {
     margin-top: 10px;
     padding-left: 5px;
     text-align: center;
+    justify-content: center;
     grid-area: weights;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    row-gap: 5px;
 }
 
 .weights_item {
-    border: 3px solid rgba(181, 137, 87, 1);
-    ;
-    margin-right: 5px;
-    font-size: 24px;
+    border: 3px solid rgba(181, 137, 87, 0.5);
+    margin: 0 5px 0 0;
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 15px;
+    border-radius: 25px;
+    height: 35px;
+    align-items: center;
+    display: grid;
 }
 
 .weights_item:hover {
     background-color: tan;
+    box-shadow: 0 0 5px rgba(180, 150, 160, 1);
+    border: none;
     color: white;
 }
 
 .button-add {
     grid-area: buttonAdd;
     margin-left: 5px;
-    margin-top: 10px;
+    margin-top: 15px;
     /* border: 1px solid black; */
     display: grid;
     grid-template-columns: 2fr repeat(2, 1fr);
@@ -180,8 +253,8 @@ body {
 }
 
 .cstyle {
-    border: 3px solid rgba(181, 137, 87, 1);
-    ;
+    /* border: 3px solid rgba(181, 137, 87, 0.5); */
+    border: 3px solid tan;
     margin-right: 5px;
     font-size: 24px;
     font-weight: bold;
@@ -191,6 +264,12 @@ body {
 .btn_add_text {
     grid-area: btn_add_text;
     text-align: center;
+}
+
+.btn_add_text:hover {
+    background-color: tan;
+    box-shadow: 0 0 5px rgba(180, 150, 160, 1);
+    color: white;
 }
 
 .t-price {
