@@ -5,31 +5,39 @@
 </head>
 
 <body>
+    <div id="roof"></div>
+    <div class="goUp">
+        <a href="#roof">
+            <img src="images/arrow_up.png" alt="">
+        </a>
+    </div>
+    <div class="cart">
+        <img src="images/cart.png" alt="">
+    </div>
     <div class="grid-container">
-        <div class="header">
+        <div id="header" class="header">
             <%- include("../partials/header.ejs")%>
         </div>
         <!-- Sweet pies page start-->
-        <div class="page-1">
+        <div id="page-1" class="page-1">
             <%- include("../partials/sweet_pies.ejs")%>
         </div>
         <!-- Sweet pies page end -->
-
         <!-- Vegetable pies page start -->
-        <div class="page-2">
+        <div id="page-2" class="page-2">
             <%- include("../partials/vegetable_pies.ejs")%>
         </div>
         <!-- Vegetable pies page end -->
         <!-- Hearty pies page start -->
-        <div class="page-3">
+        <div id="page-3" class="page-3">
             <%- include("../partials/hearty_pies.ejs")%>
         </div>
         <!-- Hearty pies page end -->
         <div class="footer">
-            Podval
+            FOOTER
         </div>
     </div>
 </body>
-<script type="text/javascript" src="js/product_card_click_handler.js"></script>
+<%-include("../partials/js.ejs")%>
 
 </html>
