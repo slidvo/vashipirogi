@@ -14,7 +14,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgba(232, 172, 142, 0.2);
+    background-color: #E8D3BE;
 }
 
 .grid-container {
@@ -24,14 +24,13 @@ body {
 }
 
 .header {
-    position: fixed;
     width: 100vw;
     grid-area: header;
     display: grid;
     background: rgba(244, 244, 244, 0.2);
     /* background: linear-gradient(180deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%); */
     grid-row: 240px repeat(2, 50px);
-    grid-template-areas: "logo" "slogan" "header_menu";
+    grid-template-areas: "logo" "slogan";
 }
 
 .logo {
@@ -48,49 +47,7 @@ body {
     grid-area: slogan;
     font-size: 24px;
     font-weight: bold;
-    color: whitesmoke;
-    text-shadow: 0 0 4px black;
-}
-
-.header_menu {
-    margin-top: 10px;
-    grid-area: header_menu;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.header_menu_link {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 5px;
-    margin: 5px;
-}
-
-.header_menu_item {
-    font-size: 24px;
-    font-weight: bolder;
-    border-radius: 25px;
-    padding: 5px;
-}
-
-.header_menu_item:hover {
-    background-color: rgba(233, 255, 255, 0.5);
-}
-
-.link_active {
-    background-color: rgba(233, 255, 255, 0.8);
-}
-
-.header_menu_item a {
-    text-decoration: none;
-}
-
-.header_menu_item a :active {
-    background: none;
-}
-
-.header_menu_item a:visited {
-    color: black;
+    color: rgba(216, 174, 119, 1);
 }
 
 .page-1 {
@@ -98,7 +55,6 @@ body {
     display: grid;
     grid-template-areas: "sp_title" "sp_content";
     justify-content: center;
-    margin-top: 200px;
 }
 
 .page-2 {
@@ -106,6 +62,7 @@ body {
     display: grid;
     grid-template-areas: "sp_title" "sp_content";
     justify-content: center;
+    background-color: rgba(245, 245, 240, 0.2);
 }
 
 .page-3 {
@@ -113,6 +70,7 @@ body {
     display: grid;
     grid-template-areas: "sp_title" "sp_content";
     justify-content: center;
+    padding-bottom: 50px;
 }
 
 .footer {
@@ -131,29 +89,10 @@ body {
 .sp_content {
     /* border: 1px solid black; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-
-/* Cart */
-
-div.cart {
-    position: fixed;
-    width: 50px;
-    z-index: 1;
-    bottom: 0;
-    right: 50px;
-}
-
-div.cart img {
-    width: 50px;
-}
-
-@media screen and (max-width:2550px) {
-    .sp_content {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
+@media screen and (max-width:2550px) {}
 
 @media screen and (max-width:2300px) {
     .sp_content {
@@ -198,40 +137,24 @@ div.cart img {
     .sp_content {
         grid-template-columns: 1fr;
     }
-    .header_menu_item {
-        font-size: 22px;
-    }
-    .header {
-        top: -120px;
-    }
-    .page-1 {
-        margin-top: 70px;
-    }
-    div.cart {
-        right: 0;
-        bottom: 50px;
-    }
 }
 
 @media screen and (max-width:360px) {
     .header_menu_link {
         grid-template-columns: repeat(3, 100px);
     }
-    .header_menu_item {
-        font-size: 18px;
-    }
 }
 
 .product-card {
     display: grid;
-    width: 300px;
+    width: 304px;
     grid-template-areas: "photo" "." "name" "." "weights" "." "buttonAdd";
-    border: 3px solid tan;
+    /* border: 3px solid tan; */
     border-radius: 15px;
-    box-shadow: 0 0 5px rgba(232, 172, 142, 0.8);
-    padding-bottom: 15px;
+    box-shadow: 0 0 5px whitesmoke;
+    padding: 2px 2px 15px 2px;
     background-color: whitesmoke;
-    margin: 10px;
+    margin: 5px;
 }
 
 .product-card:hover {
@@ -244,8 +167,8 @@ div.cart img {
 }
 
 .photo>img {
-    border-radius: 10px;
-    width: 294px;
+    border-radius: 15px;
+    width: 300px;
     pointer-events: none;
 }
 
@@ -347,23 +270,6 @@ div.cart img {
 .selected {
     background-color: tan;
     color: white;
-}
-
-div.goUp {
-    position: fixed;
-    z-index: 1;
-    right: 0;
-    bottom: 0;
-    width: 50px;
-    border-radius: 25px;
-    text-align: center;
-    align-items: center;
-    display: grid;
-}
-
-div.goUp a img {
-    width: 50px;
-    border-radius: 25px;
 }
 
 .hidden {

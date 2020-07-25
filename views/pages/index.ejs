@@ -6,14 +6,7 @@
 
 <body>
     <div id="roof"></div>
-    <div class="goUp">
-        <a href="#roof">
-            <img src="images/arrow_up.png" alt="">
-        </a>
-    </div>
-    <div class="cart">
-        <img src="images/cart.png" alt="">
-    </div>
+
     <div class="grid-container">
         <div id="header" class="header">
             <%- include("../partials/header.ejs")%>
@@ -33,9 +26,7 @@
             <%- include("../partials/hearty_pies.ejs")%>
         </div>
         <!-- Hearty pies page end -->
-        <div class="footer">
-            FOOTER
-        </div>
+        <%-include('../partials/menu.ejs')%>
     </div>
 </body>
 <%-include("../partials/js.ejs")%>

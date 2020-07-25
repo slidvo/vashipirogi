@@ -1,0 +1,29 @@
+div.navbar {
+    display: grid;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    height: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    align-items: center;
+    background-color: #F7E8D8;
+    grid-template-areas: ". links .";
+}
+
+.navbar_links {
+    grid-area: links;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width:620px) {
+    div.navbar {
+        grid-template-areas: "links links links";
+    }
+    .navbar_links {
+        grid-area: links;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
