@@ -4,7 +4,8 @@ function navbarClickHandler(st) {
 
     Array.from(links).forEach(function(elt) {
         elt.addEventListener('click', function(e) {
-            removeClassNameFromNodeList(links, st)
+            removeClassNameFromNodeList(links, st);
+
             if (!isSelected(elt, st)) {
                 elt.classList.add(st);
             }

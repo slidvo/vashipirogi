@@ -1,3 +1,4 @@
+//TODO NOT WORKING YET
 function scrollHandler() {
     let page2 = document.querySelector('div.page-2');
 

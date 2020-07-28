@@ -5,6 +5,8 @@ function indexHandler() {
 
     navbarClickHandler(st);
 
+    bascketHandler();
+
     setTimeout(function() {
         alertCookie();
     }, 1000)

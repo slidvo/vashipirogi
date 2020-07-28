@@ -21,7 +21,7 @@ div.navbar {
 .navbar_links {
     grid-area: links;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) 50px;
     gap: 5px;
 }
 
@@ -48,7 +48,7 @@ div.navbar {
     .navbar_links {
         grid-area: links;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr) 40px;
     }
     .navbar,
     .navbar_links,

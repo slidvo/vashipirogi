@@ -29,7 +29,7 @@ body {
     display: grid;
     background: rgba(244, 244, 244, 0.2);
     /* background: linear-gradient(180deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%); */
-    grid-row: 240px repeat(2, 50px);
+    grid-row: 240px 50px;
     grid-template-areas: "logo" "slogan";
 }
 
@@ -270,8 +270,4 @@ body {
 .selected {
     background-color: tan;
     color: white;
-}
-
-.hidden {
-    display: none;
 }
