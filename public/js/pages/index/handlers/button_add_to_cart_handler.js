@@ -1,5 +1,9 @@
-function buttonAddProductToCartHandler(button, weightButtons, productName, selectedProducts, st) {
-    text = button.querySelector('div.btn_add_text');
+function buttonAddProductToCartHandler(button,
+    weightButtons,
+    productName,
+    selectedProducts,
+    text,
+    st) {
     button.addEventListener("click", function(e) {
         weightButtons.forEach(function(elt) {
             if (isSelected(elt, st)) {

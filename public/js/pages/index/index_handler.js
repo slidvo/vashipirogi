@@ -1,4 +1,7 @@
 function indexHandler() {
-    productCardHandler();
+    const st = 'selected';
+    productCardHandler(st);
+
+    navbarClickHandler(st);
 }
 indexHandler();

@@ -1,7 +1,8 @@
 .navbar,
 .navbar_links,
-.navbar_item {
-    height: 25px;
+.navbar_item,
+.navbar_item a {
+    height: 50px;
 }
 
 div.navbar {
@@ -14,6 +15,7 @@ div.navbar {
     align-items: center;
     background-color: #F7E8D8;
     grid-template-areas: ". links .";
+    box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
 }
 
 .navbar_links {
@@ -24,7 +26,7 @@ div.navbar {
 }
 
 .navbar_item {
-    border-top: 2px solid rgba(210, 180, 140, 0.5);
+    border-top: 5px solid rgba(210, 180, 140, 0.8);
 }
 
 .navbar_item:hover {
@@ -36,6 +38,7 @@ div.navbar {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    display: block;
 }
 
 @media screen and (max-width:620px) {
@@ -46,5 +49,11 @@ div.navbar {
         grid-area: links;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+    }
+    .navbar,
+    .navbar_links,
+    .navbar_item,
+    .navbar_item a {
+        height: 40px;
     }
 }
