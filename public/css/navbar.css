@@ -1,9 +1,14 @@
+.navbar,
+.navbar_links,
+.navbar_item {
+    height: 25px;
+}
+
 div.navbar {
     display: grid;
     position: fixed;
     width: 100vw;
     bottom: 0;
-    height: 50px;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
     align-items: center;
@@ -15,6 +20,22 @@ div.navbar {
     grid-area: links;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.navbar_item {
+    border-top: 2px solid rgba(210, 180, 140, 0.5);
+}
+
+.navbar_item:hover {
+    border-top: 5px solid rgba(210, 180, 140, 1);
+    background-color: rgba(210, 180, 140, 0.4);
+}
+
+.navbar_item a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 @media screen and (max-width:620px) {
