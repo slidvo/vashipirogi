@@ -7,9 +7,9 @@ function indexHandler() {
 
     bascketHandler();
 
-    setTimeout(function() {
-        alertCookie();
-    }, 1000)
+    // setTimeout(function() {
+    //     alertCookie();
+    // }, 1000)
 }
 
 indexHandler();

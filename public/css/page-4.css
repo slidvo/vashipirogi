@@ -2,22 +2,68 @@ div.page-4 {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, 1fr);
     z-index: 2;
-    background-color: rgba(180, 180, 180, 0.8);
-    grid-template-areas: ". . ." ". basket_info ." ". . .";
+    background-color: rgba(180, 180, 180, 0.9);
+    grid-template-areas: ". . . . ." " . . basket_info . ." ". . . . .";
     align-items: center;
+    overflow-y: scroll;
 }
 
 div.page-4 .basket_info {
     grid-area: basket_info;
+    display: grid;
     text-align: center;
-    border-radius: 15px;
-    background-color: rgba(250, 250, 250, 0.5);
+    border-radius: 8px;
+    background-color: rgba(240, 240, 240, 0.8);
     box-shadow: 0 0 3px black;
     padding: 6px;
     margin: 4px;
+    row-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 50px 50px;
+    grid-template-areas: "pList pList" ". total" "b1 b2";
+}
+
+.total_price {
+    grid-area: total;
+    display: grid;
+    align-items: center;
+}
+
+.product_list {
+    grid-area: pList;
+    display: grid;
+    gap: 5px;
+}
+
+div.page-4 .basket_info button {
+    border-radius: 8px;
+    box-shadow: 0 0 2px black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.b1 {
+    grid-area: b1;
+}
+
+.b2 {
+    grid-area: b2;
+}
+
+.product_list .product_list__item {
+    display: grid;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 3px black;
+    background-color: rgba(240, 240, 240, 0.8);
+    grid-template-columns: 1fr 2.5fr 1fr 1fr;
+}
+
+.elt_remove img {
+    width: 30px;
 }
 
 .close {
@@ -26,4 +72,28 @@ div.page-4 .basket_info {
 
 .show {
     display: grid;
+}
+
+@media screen and (max-width:1400px) {
+    div.page-4 {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr 3fr 1fr;
+        grid-template-areas: ". . ." " . basket_info ." ". . .";
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:950px) {
+    div.page-4 {
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-rows: 1fr 8fr 1fr;
+        grid-template-areas: ". . ." " . basket_info ." ". . .";
+        font-size: 16px;
+    }
+    div.page-4 .basket_info button {
+        border-radius: 8px;
+        box-shadow: 0 0 2px black;
+        font-size: 16px;
+        font-weight: 500;
+    }
 }
