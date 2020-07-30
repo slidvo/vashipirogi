@@ -3,6 +3,7 @@ function buttonAddProductToCartHandler(button,
     productName,
     selectedProducts,
     text,
+    pid,
     st) {
     button.addEventListener("click", function(e) {
 
@@ -12,7 +13,8 @@ function buttonAddProductToCartHandler(button,
                 if (isSelected(elt, st)) {
                     text.classList.add(st);
                     text.textContent = 'В корзине';
-                    selectedProducts.push({
+                    basketFilling({
+                        "id": pid,
                         "name": productName,
                         'weight': elt.innerText,
                         "price": elt.getAttribute('data-price'),
@@ -21,9 +23,16 @@ function buttonAddProductToCartHandler(button,
             });
             console.log('\n');
             selectedProducts.forEach(function(e) {
-                console.log(e['name'] + " " + e['weight'] + " " + e['price']);
+                console.log(e['id'] + ":" + e['name'] + " " + e['weight'] + " " + e['price']);
             });
         }
 
     });
+}
+
+
+function basketFilling(sp) { //sp.id name weight price
+    let productList = document.querySelector('div.basket_info div.product_list');
+    console.log("productList : " + productList)
+
 }

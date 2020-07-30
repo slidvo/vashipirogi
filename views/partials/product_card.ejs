@@ -1,28 +1,27 @@
-  
-  <div class="product-card">
-        <div class="photo">
-            <img src="<%=product.img%>" alt="">
+<div class="product-card" data-pid="<%=product.id%>">
+    <div class="photo">
+        <img src="<%=product.img%>" alt="">
+    </div>
+    <div class="name">
+        <div class="product_name">
+            <%=product.name%>
         </div>
-        <div class="name">
-            <div class="product_name">
-                <%=product.name%>
-            </div>
-            <div class="filling">
-                <%=product.filling%>
-            </div>
-        </div>
-        <div class="weights">
-            <div class="weights_item" data-price="<%=price["price"]["1"]%>">1 кг</div>
-            <div class="weights_item" data-price="<%=price["price"]["1.5"]%>">1.5 кг</div>
-            <div class="weights_item" data-price="<%=price["price"]["2"]%>">2 кг</div>
-            <div class="weights_item" data-price="<%=price["price"]["2.5"]%>">2.5 кг</div>
-            <div class="weights_item" data-price="<%=price["price"]["3"]%>">3 кг</div>
-        </div>
-        <div class="button-add">
-            <div class="btn_add_text cstyle">
-                Выбрать
-            </div>
-            <div class="t-price ">Цена:</div>
-            <div class="tp-price ">0</div>
+        <div class="filling">
+            <%=product.filling%>
         </div>
     </div>
+    <div class="weights">
+        <div class="weights_item" data-price="<%=price["price"]["1"]%>">1 кг</div>
+        <div class="weights_item" data-price="<%=price["price"]["1.5"]%>">1.5 кг</div>
+        <div class="weights_item" data-price="<%=price["price"]["2"]%>">2 кг</div>
+        <div class="weights_item" data-price="<%=price["price"]["2.5"]%>">2.5 кг</div>
+        <div class="weights_item" data-price="<%=price["price"]["3"]%>">3 кг</div>
+    </div>
+    <div class="button-add">
+        <div class="btn_add_text cstyle">
+            Выбрать
+        </div>
+        <div class="t-price ">Цена:</div>
+        <div class="tp-price ">0</div>
+    </div>
+</div>
