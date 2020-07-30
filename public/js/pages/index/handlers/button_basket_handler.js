@@ -8,6 +8,7 @@ function bascketHandler(st) {
     btn.addEventListener('click', function(e) {
         p4.classList.remove('close');
         p4.classList.add('show');
+
     });
 
     b1.addEventListener('click', function() {

@@ -1,7 +1,9 @@
 function indexHandler() {
     const st = 'selected';
+    let productList = document.querySelector('div.basket_info div.product_list');
+    let totalPriceItem = document.querySelector('div.basket_info div.total_price div.total_price__item');
 
-    productCardHandler(st);
+    productCardHandler(productList, totalPriceItem, st);
 
     navbarClickHandler(st);
 
