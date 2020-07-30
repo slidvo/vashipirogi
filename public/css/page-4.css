@@ -22,10 +22,40 @@ div.page-4 .basket_info {
     padding: 6px;
     margin: 4px;
     row-gap: 5px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 50px 50px;
-    grid-template-areas: "pList pList" ". total" "b1 b2";
-    margin-bottom: 50px;
+    grid-template-areas: "pList pList pList" ". total total" "b1 b2 b3";
+    margin-bottom: 46px;
+    column-gap: 20px;
+}
+
+div.page-4 .basket_info button {
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(44, 44, 44);
+}
+
+div.page-4 .basket_info button:hover {
+    box-shadow: 0 0 2px black;
+}
+
+.product_list {
+    grid-area: pList;
+    display: grid;
+    gap: 5px;
+}
+
+.b1 {
+    grid-area: b1;
+}
+
+.b2 {
+    grid-area: b2;
+}
+
+.b3 {
+    grid-area: b3;
 }
 
 .total_price {
@@ -33,7 +63,27 @@ div.page-4 .basket_info {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: ". . tpInfo1 tpValue tpInfo2";
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: ". . dl dl dl" ". . tpInfo1 tpValue tpInfo2";
+    /* dl - delivery cost*/
+}
+
+.delivery {
+    grid-area: dl;
+    display: grid;
+    grid-template-areas: "inf1 cst inf2";
+}
+
+.dlInfo-1 {
+    grid-area: inf1;
+}
+
+.dlInfo-2 {
+    grid-area: inf2;
+}
+
+.dlCost {
+    grid-area: cst;
 }
 
 .tpInfo-1 {
@@ -46,27 +96,6 @@ div.page-4 .basket_info {
 
 .total_price__item {
     grid-area: tpValue;
-}
-
-.product_list {
-    grid-area: pList;
-    display: grid;
-    gap: 5px;
-}
-
-div.page-4 .basket_info button {
-    border-radius: 8px;
-    box-shadow: 0 0 2px black;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.b1 {
-    grid-area: b1;
-}
-
-.b2 {
-    grid-area: b2;
 }
 
 .product_list .product_list__item {
@@ -86,6 +115,11 @@ div.page-4 .basket_info button {
 .elt_remove,
 .elt_remove img {
     border-radius: 5px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .elt_remove img {
