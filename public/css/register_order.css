@@ -1,0 +1,53 @@
+#register_order {
+    position: fixed;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    z-index: 2;
+    background-color: rgba(180, 180, 180, 0.9);
+    grid-template-areas: ". . . . ." " . roiA roiA roiA ." ". . . . .";
+    align-items: center;
+    overflow-y: scroll;
+}
+
+#register_order .register_order__info {
+    grid-area: roiA;
+    display: grid;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(240, 240, 240, 0.8);
+    box-shadow: 0 0 3px black;
+    padding: 6px;
+    margin: 4px;
+    row-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 50px 50px;
+    grid-template-areas: "ropl ropl ropl" ". . . " ". . . ";
+}
+
+#register_order .register_order__info .product_list {
+    grid-area: ropl;
+    display: grid;
+    gap: 5px;
+}
+
+#register_order .register_order__info .product_list .product_list__item {
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "ropiN ropiW ropiC";
+}
+
+.register_order__info .product_list .product_list__item .elt_name {
+    grid-area: ropiN;
+}
+
+.register_order__info .product_list .product_list__item .elt_weight {
+    grid-area: ropiW;
+}
+
+.register_order__info .product_list .product_list__item .elt_price {
+    grid-area: ropiC;
+}

@@ -1,5 +1,6 @@
 div.page-4 {
     position: fixed;
+    display: grid;
     width: 100vw;
     height: 100vh;
     grid-template-columns: repeat(5, 1fr);
@@ -26,21 +27,22 @@ div.page-4 .basket_info {
     grid-template-rows: 1fr 50px 50px;
     grid-template-areas: "pList pList pList" ". total total" "b1 b2 b3";
     margin-bottom: 46px;
-    column-gap: 20px;
+    column-gap: 10px;
 }
 
 div.page-4 .basket_info button {
     border-radius: 8px;
     font-size: 20px;
-    font-weight: bold;
+    text-shadow: 0 0 0.5px black;
     color: rgb(44, 44, 44);
+    padding: 5px;
 }
 
 div.page-4 .basket_info button:hover {
     box-shadow: 0 0 2px black;
 }
 
-.product_list {
+div.page-4 .basket_info .product_list {
     grid-area: pList;
     display: grid;
     gap: 5px;
@@ -48,6 +50,7 @@ div.page-4 .basket_info button:hover {
 
 .b1 {
     grid-area: b1;
+    pad: 4px;
 }
 
 .b2 {
@@ -98,7 +101,7 @@ div.page-4 .basket_info button:hover {
     grid-area: tpValue;
 }
 
-.product_list .product_list__item {
+.basket_info .product_list .product_list__item {
     display: grid;
     align-items: center;
     border-radius: 8px;
@@ -107,7 +110,7 @@ div.page-4 .basket_info button:hover {
     grid-template-columns: 1fr 2.5fr 1fr 1fr;
 }
 
-.product_list__item:hover {
+.basket_info .product_list .product_list__item:hover {
     box-shadow: 0 0 2px black;
     background-color: rgba(245, 245, 240, 1);
 }
@@ -139,26 +142,22 @@ div.page-4 .basket_info button:hover {
     display: grid;
 }
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1650px) {
     div.page-4 {
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr 3fr 1fr;
-        grid-template-areas: ". . ." " . basket_info ." ". . .";
         font-size: 16px;
     }
 }
 
 @media screen and (max-width:950px) {
     div.page-4 {
-        grid-template-columns: 10px 1fr 10px;
-        grid-template-rows: 1fr 10fr 1fr;
-        grid-template-areas: ". . ." " . basket_info ." ". . .";
         font-size: 16px;
     }
     div.page-4 .basket_info button {
         border-radius: 8px;
         box-shadow: 0 0 2px black;
         font-size: 16px;
-        font-weight: 500;
+    }
+    .total_price {
+        grid-template-areas: ". dl dl dl dl" ". tpInfo1 tpValue tpValue tpInfo2";
     }
 }
