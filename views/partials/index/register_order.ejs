@@ -25,13 +25,16 @@
     <div class="ro_contact">
         <form method="POST" action="/create/order">
             <div class="ro_contact__phone">
-                <input type="tel" required name="phone" pattern="[0-9]{11}" id="phone" placeholder="Телефон">
+                <input type="tel" required name="phone" id="phone" placeholder="Телефон">
             </div>
             <div class="ro_contact__street">
                 <input type="text" required name="street" id="street" placeholder="Улица">
             </div>
             <div class="ro_contact__build">
                 <input type="text" required name="build" id="build" placeholder="Дом">
+            </div>
+            <div class="ro_contact__entrance">
+                <input type="text" required name="entrance" id="entrance" placeholder="Подъезд">
             </div>
             <div class="ro_contact__flat">
                 <input type="text" required name="flat" id="flat" placeholder="Квартира">

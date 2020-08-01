@@ -18,7 +18,20 @@ function Cake(id, ct, n, f, path) {
     this.img = path;
 }
 Cake.prototype.getCakes = function(callback) {
-    callback(cakes);
+    //query 
+    callback(cakes); //result of query
+}
+Cake.prototype.getCakeNameById = function(i, callback) {
+    try {
+        cakes.forEach(function(elt) {
+            if (elt.id == i) {
+                if (elt["name"])
+                    return callback(elt["name"]);
+            }
+        });
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 let cakes = [
@@ -65,4 +78,4 @@ let cakes = [
 
 
 //module.exports = CakesType;
-module.exports.cake = Cake;
+module.exports = Cake;

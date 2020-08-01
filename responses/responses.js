@@ -1,7 +1,6 @@
-const Cake = require("../model/products").cake;
-const Price = require("../model/price").price;
-const EMAIL_SENDER = require('../mailing/email/email_msg');
-const { json } = require("express");
+const Cake = require("../model/products");
+const Price = require("../model/price");
+const sendOrderInfo = require("../mailing/send_order_info");
 
 //GET RESPONSES
 let get = Object.create(null);
@@ -26,17 +25,8 @@ module.exports.get = get;
 let post = Object.create(null);
 let create = Object.create(null);
 create.order = function(req, res) {
-    console.log(req.body);
-    req.body.order.forEach(function(elt) {
-        console.log(JSON.parse(elt));
-    });
-    // EMAIL_SENDER
-    //     .sendMessageToEmail('<b>Тестовое сообщение отправа на почту</b>')
-    //     .then((info) => {
-    //         console.log("Сообщение успешно отправлено напочту :" + info.messageId)
-    //     }).catch(console.error).then(() => {
-    //         res.redirect('/');
-    //     });
+    sendOrderInfo(req.body);
+
     res.redirect('/thnx')
 }
 post = { create }

@@ -15,6 +15,7 @@ function buttonAddProductToCartHandler(productList, totalPriceItem, button,
                     basketFilling(productList, totalPriceItem, {
                         "id": pid,
                         "name": productName,
+                        "dWeight": elt.getAttribute('data-weight'),
                         'weight': elt.innerText,
                         "price": elt.getAttribute('data-price'),
                     });

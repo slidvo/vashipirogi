@@ -8,7 +8,18 @@ function Price(id, pid, p) {
 Price.prototype.getPrices = function(callback) {
     callback(productPrice);
 }
+Price.prototype.getPriceByIdAndWeigth = function(i, w, callback) {
+    try {
+        productPrice.forEach(function(elt) {
+            if (elt.id == i) {
+                return callback(elt.price[w])
+            }
+        });
+    } catch (e) {
+        console.error(e);
+    }
 
+}
 let productPrice = [
     //Sweet
     new Price(0, 0, { "1": "470", "1.5": "705", "2": "940", "2.5": "1175", "3": "1410" }),
@@ -46,4 +57,4 @@ let productPrice = [
     new Price(28, 28, { "1": "600", "1.5": "900", "2": "1200", "2.5": "1500", "3": "1800" }),
 ];
 
-module.exports.price = Price;
+module.exports = Price;

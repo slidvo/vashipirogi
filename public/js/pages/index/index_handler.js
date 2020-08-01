@@ -71,7 +71,7 @@ function basketFilling(pl, tPi, product) { //sp.id name weight price
     elt_price.appendChild(document.createTextNode(product.price));
 
     productListItem.setAttribute('data-id', product.id);
-    productListItem.setAttribute('data-weight', product.weight);
+    productListItem.setAttribute('data-weight', product.dWeight);
     productListItem.appendChild(elt_name);
     productListItem.appendChild(elt_weight);
     productListItem.appendChild(elt_price);
