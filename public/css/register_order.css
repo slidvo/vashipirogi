@@ -3,11 +3,11 @@
     display: grid;
     width: 100vw;
     height: 100vh;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(3, 1fr);
     z-index: 2;
     background-color: rgba(180, 180, 180, 0.9);
-    grid-template-areas: ". . . . ." " . roiA roiA roiA ." ". . . . .";
+    grid-template-areas: ". . . . . . ." " . . . roiA . . ." ". . . . . . .";
     align-items: center;
     overflow-y: scroll;
 }
@@ -15,39 +15,83 @@
 #register_order .register_order__info {
     grid-area: roiA;
     display: grid;
+    min-width: 300px;
     text-align: center;
     border-radius: 8px;
-    background-color: rgba(240, 240, 240, 0.8);
+    background-color: whitesmoke;
     box-shadow: 0 0 3px black;
     padding: 6px;
     margin: 4px;
     row-gap: 5px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 50px 50px;
-    grid-template-areas: "ropl ropl ropl" ". . . " ". . . ";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "ro_title ro_title ro_title ro_title " "ro_pl ro_pl ro_pl ro_pl" ". . . ro_dl" ". . . ro_tc" "ro_con ro_con ro_con ro_con" "ro_btns ro_btns ro_btns ro_btns";
 }
 
-#register_order .register_order__info .product_list {
-    grid-area: ropl;
+.ro_title {
+    text-align: left;
+    grid-area: ro_title;
+    display: grid;
+}
+
+.ro_product_list {
+    grid-area: ro_pl;
+    display: grid;
+    row-gap: 5px;
+}
+
+.ro_product_list__item {
+    display: grid;
+    grid-template-columns: 1fr 50px 100px;
+    border-radius: 10px;
+    border: 1px solid black;
+    min-height: 30px;
+    align-items: center;
+    padding: 5px;
+}
+
+.ro_delivery {
+    grid-area: ro_dl;
+    display: grid;
+    grid-template-columns: 80px 80px;
+}
+
+.ro_total {
+    grid-area: ro_tc;
+    display: grid;
+    grid-template-columns: 80px 80px;
+}
+
+.ro_contact {
+    grid-area: ro_con;
     display: grid;
     gap: 5px;
 }
 
-#register_order .register_order__info .product_list .product_list__item {
-    display: grid;
-    border: 1px solid black;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "ropiN ropiW ropiC";
+.ro_contact div {
+    min-height: 30px;
+    padding: 5px;
 }
 
-.register_order__info .product_list .product_list__item .elt_name {
-    grid-area: ropiN;
+.ro_contact div>input,
+.ro_contact div>textarea {
+    min-height: 30px;
+    border-radius: 10px;
+    width: 280px;
+    padding-left: 5px;
 }
 
-.register_order__info .product_list .product_list__item .elt_weight {
-    grid-area: ropiW;
+.ro_contact div>textarea {
+    padding-top: 5px;
 }
 
-.register_order__info .product_list .product_list__item .elt_price {
-    grid-area: ropiC;
+.ro_buttons button {
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+@media screen and (max-width:950px) {
+    #register_order {
+        grid-template-areas: ". . . . . . ." " roiA roiA roiA roiA roiA roiA roiA" ". . . . . . .";
+    }
 }

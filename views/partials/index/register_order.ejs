@@ -1,5 +1,59 @@
 <div class="register_order__info">
-    <div class="product_list">
+    <div class="ro_title">
+        <h4>Оформление заказа</h3>
     </div>
-    <!-- <div class="total_price"></div> -->
+    <div class="ro_product_list"></div>
+
+    <div class="ro_delivery">
+        <div class="ro_delivery__text">
+            Доставка
+        </div>
+        <div class="ro_delivery_price">
+            <!-- <span class="ro_delivery_price__summ">999</span>
+            <span class="ro_delivery__curr"> руб.</span> -->
+        </div>
+    </div>
+
+    <div class="ro_total">
+        <div class="ro_total_text">К оплате</div>
+        <div class="ro_total_cost">
+            <span class="ro_total_cost__summ">0</span>
+            <span class="ro_total__curr"> руб.</span>
+        </div>
+    </div>
+
+    <div class="ro_contact">
+        <form method="POST" action="/create/order">
+            <div class="ro_contact__phone">
+                <input type="tel" required name="phone" pattern="[0-9]{11}" id="phone" placeholder="Телефон">
+            </div>
+            <div class="ro_contact__street">
+                <input type="text" required name="street" id="street" placeholder="Улица">
+            </div>
+            <div class="ro_contact__build">
+                <input type="text" required name="build" id="build" placeholder="Дом">
+            </div>
+            <div class="ro_contact__flat">
+                <input type="text" required name="flat" id="flat" placeholder="Квартира">
+            </div>
+            <div class="ro_contact__comment">
+                <textarea type="text" name="comment" id="comment" placeholder="Комментарий"></textarea>
+            </div>
+            <div class="ro_send_products">
+                <!-- <input type="text" hidden name="order[]" id="order" value='{"1":"VAL1"}'>
+                <input type="text" hidden name="order[]" id="order" value='{"2":"VAL2"}'> -->
+            </div>
+            <div class="ro_buttons">
+                <button type="button" onclick="bla()" class="ro_buttons__cancel">Отмена</button>
+                <button type="submit" class="ro_buttons__send">Отправить</button>
+            </div>
+        </form>
+    </div>
+
 </div>
+
+<script>
+    function bla() {
+        alert('bla');
+    }
+</script>

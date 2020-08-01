@@ -16,6 +16,7 @@ div.page-4 {
 div.page-4 .basket_info {
     grid-area: basket_info;
     display: grid;
+    min-width: 300px;
     text-align: center;
     border-radius: 8px;
     background-color: rgba(240, 240, 240, 0.8);
@@ -32,8 +33,6 @@ div.page-4 .basket_info {
 
 div.page-4 .basket_info button {
     border-radius: 8px;
-    font-size: 20px;
-    text-shadow: 0 0 0.5px black;
     color: rgb(44, 44, 44);
     padding: 5px;
 }

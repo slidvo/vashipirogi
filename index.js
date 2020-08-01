@@ -1,7 +1,11 @@
 const fs = require('fs');
 const https = require('https');
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 const routes = require("./routes/router");
 const { Certificate } = require('crypto');

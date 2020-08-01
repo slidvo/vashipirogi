@@ -5,6 +5,7 @@ router.get("/flav.ico", (req, res) => res.status(204));
 
 //GET
 router.get('/', controllers.get.index);
+router.get('/thnx', controllers.get.thnx);
 
 //Ignore flavicon.ico
 router.get('/favicon.ico', (req, res) => res.status(204))

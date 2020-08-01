@@ -8,6 +8,9 @@ let get = Object.create(null);
 get.index = function(req, res) {
     responses.get.index(req, res);
 }
+get.thnx = function(req, res) {
+    responses.get.thnx(req, res);
+}
 
 module.exports.get = get;
 
