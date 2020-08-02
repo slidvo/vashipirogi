@@ -103,9 +103,8 @@ module.exports = function sendOrderInfo(orderData) {
     tlg_message += `Комментарий : ${orderData.comment}\n`;
 
     console.log(finalMessage);
-
     console.log(tlg_message);
 
-    //  EMAIL_SENDER.sendMessageToEmail(finalMessage);
+    // EMAIL_SENDER.sendMessageToEmail(finalMessage);
     // TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);
 }
