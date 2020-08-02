@@ -105,6 +105,6 @@ module.exports = function sendOrderInfo(orderData) {
     console.log(finalMessage);
     console.log(tlg_message);
 
-    // EMAIL_SENDER.sendMessageToEmail(finalMessage);
-    // TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);
+    EMAIL_SENDER.sendMessageToEmail(finalMessage);
+    TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);
 }

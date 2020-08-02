@@ -9,6 +9,20 @@ function bascketHandler(pl, dc, st) {
     btn.addEventListener('click', function(e) {
         if (pl.firstChild) {
             p4.style.display = 'grid';
+            //TODO : Update delivery value FUNCTION!!!!
+            let dlCost = document.querySelector('div.dlCost')
+            let dlCurr = document.querySelector('div.dlInfo-2')
+            let basketTotalPrice = document.querySelector('.total_price__item')
+            if (Number(basketTotalPrice.textContent) >= 1000) {
+                dlCost.textContent = '';
+                dlCost.textContent = '0';
+                dlCurr.textContent = 'р.';
+
+            } else {
+                dlCost.textContent = '';
+                dlCost.textContent = '150';
+                dlCurr.textContent = ' р.';
+            }
         } else {
             alert("Корзина пустая :(")
         }
@@ -16,7 +30,14 @@ function bascketHandler(pl, dc, st) {
 
     b1.addEventListener('click', function(e) {
         p4.style.display = 'none';
-        btn.classList.remove(st);
+        let btnSelected = document.querySelectorAll("div.btn_add_text");
+        //TODO Function for change statuses of buttons
+        Array.from(btnSelected).forEach(function(elt) {
+            if (isSelected(elt, 'selected')) {
+                elt.classList.remove('selected'); //TODO : Must add const st
+                elt.textContent = 'Выбрать';
+            }
+        });
     })
 
     b2.addEventListener('click', function(e) {

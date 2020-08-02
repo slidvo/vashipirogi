@@ -8,7 +8,7 @@ function generateTransporter() {
         port: NM_CONF.defaultPort,
         secure: NM_CONF.secure,
         auth: {
-            user: NM_CONF.email.address,
+            user: NM_CONF.email.from,
             pass: NM_CONF.email.password
         }
     });
@@ -17,8 +17,8 @@ function generateTransporter() {
 async function sendMessageToEmail(htmlBody) {
     let transporter = generateTransporter();
     let info = await transporter.sendMail({
-        from: NM_CONF.email.address,
-        to: NM_CONF.email.address,
+        from: NM_CONF.email.from,
+        to: NM_CONF.email.to,
         subject: 'Информация о заказе',
         text: 'Вам поступил заказ',
         html: htmlBody

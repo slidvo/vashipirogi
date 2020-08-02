@@ -23,6 +23,12 @@
     </div>
 
     <div class="ro_contact">
+        <div class="ro_city">
+            <select style="text-align:center;color:green;">
+                <option  disabled>Выберите город</option>
+                <option selected value="kazan">Казань</option>
+            </select>
+        </div>
         <form method="POST" action="/create/order">
             <div class="ro_contact__phone">
                 <input type="tel" required name="phone" id="phone" placeholder="Телефон">

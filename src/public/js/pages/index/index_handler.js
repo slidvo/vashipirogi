@@ -2,7 +2,7 @@ function indexHandler() {
     const st = 'selected';
     let productList = document.querySelector('div.basket_info div.product_list');
     let totalPriceItem = document.querySelector('div.basket_info div.total_price div.total_price__item');
-    let deliveryCost = 120;
+    let deliveryCost = 150;
     productCardHandler(productList, totalPriceItem, st);
 
     navbarClickHandler(st);
@@ -35,6 +35,7 @@ function removeBasketChildren(pl) {
     totalPrice.textContent = 0;
 
     let btnSelected = document.querySelectorAll("div.btn_add_text");
+    //TODO Function for change statuses of buttons
     Array.from(btnSelected).forEach(function(elt) {
         if (isSelected(elt, 'selected')) {
             elt.classList.remove('selected'); //TODO : Must add const st
@@ -88,12 +89,26 @@ function basketFilling(pl, tPi, product) { //sp.id name weight price
 }
 
 function eltRemoveListener(elt, tPi) {
+    let dlCost = document.querySelector('div.dlCost')
+    let dlCurr = document.querySelector('div.dlInfo-2')
     elt.addEventListener('click', function(e) {
         let plItem = elt.parentElement;
         let itemCost = plItem.querySelector("div.elt_price");
         let parent = plItem.parentElement;
         tPi.textContent = Number(tPi.textContent) - Number(itemCost.textContent);
         parent.removeChild(plItem);
+
+        //TODO : Update delivery value FUNCTION!!!!        
+        if (Number(tPi.textContent) >= 1000) {
+            dlCost.textContent = '';
+            dlCost.textContent = '0';
+            dlCurr.textContent = 'р.';
+
+        } else {
+            dlCost.textContent = '';
+            dlCost.textContent = '150';
+            dlCurr.textContent = ' р.';
+        }
         if (!parent.firstChild) {
             let p4 = document.querySelector('.page-4');
             p4.classList.remove('show');

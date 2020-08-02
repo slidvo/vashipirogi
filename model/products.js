@@ -60,7 +60,7 @@ let cakes = [
     new Cake(18, 2, "Пирог с свининой", "свинина, картофель, лук, зелень", "images/cakes/pig.jpg"),
     new Cake(19, 2, "Пирог с говядиной", "говядина, картофель, лук, зелень", "images/cakes/beef.jpg"),
     new Cake(20, 2, "Пирог \"Жульен\"", "курица, сыр, грибы, лук, зелень", "images/cakes/julien.jpg"),
-    new Cake(21, 2, "Пирог \"Сёмгой\"", "сёмга, картофель, лук, зелень", "images/cakes/salmon.jpg"),
+    new Cake(21, 2, "Пирог c cёмгой", "сёмга, картофель, лук, зелень", "images/cakes/salmon.jpg"),
     new Cake(22, 2, "Пирог с индейкой и картофелем", "сёмга, картофель, лук, зелень", "images/cakes/turkey_potato.jpg"),
     new Cake(23, 2, "Пирог с индейкой и капустой с грибами", "филе индейки, капуста, грибы, лук, зелень", "images/cakes/turkey_cabbage_mushrooms.jpg"),
     new Cake(24, 2, "Пирог с горбушей и картофелем", "горбуша, картофель, лук, зелень", "images/cakes/pink_salmon_potato.jpg"),

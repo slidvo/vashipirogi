@@ -29,8 +29,8 @@ body {
     display: grid;
     background: rgba(244, 244, 244, 0.2);
     /* background: linear-gradient(180deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%); */
-    grid-row: 240px 50px;
-    grid-template-areas: "logo" "slogan";
+    /* grid-row: 240px 50px; */
+    grid-template-areas: "logo" "slogan" "hinfo";
 }
 
 .logo {
@@ -48,6 +48,13 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: rgba(216, 174, 119, 1);
+}
+
+.hInfo a {
+    grid-area: hinfo;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .page-1 {
