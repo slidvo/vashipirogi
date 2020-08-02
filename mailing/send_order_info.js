@@ -2,13 +2,6 @@ const EMAIL_SENDER = require("./email/email_msg");
 const TELEGRAM_SENDER = require("./telegram/tlg_msg");
 const PriceList = require('../model/price');
 const Cake = require('../model/products');
-// EMAIL_SENDER
-//     .sendMessageToEmail('<b>Тестовое сообщение отправа на почту</b>')
-//     .then((info) => {
-//         console.log("Сообщение успешно отправлено напочту :" + info.messageId)
-//     }).catch(console.error).then(() => {
-//         res.redirect('/');
-//     });
 
 module.exports = function sendOrderInfo(orderData) {
     let deliveryCost = 150;
@@ -56,7 +49,7 @@ module.exports = function sendOrderInfo(orderData) {
         </tr>
         `;
         tlg_message += `Доставка: ${deliveryCost} руб.\n`;
-    } else {
+    } else if (total >= 1000) {
         table += `
         <tr>
             <td></td>
@@ -65,7 +58,7 @@ module.exports = function sendOrderInfo(orderData) {
         </tr>
         `;
 
-        tlg_message += `Доставка: бесплатно\n`;
+        tlg_message += `Доставка: Бесплатно\n`;
     }
 
     console.log("Total : " + total);
@@ -101,7 +94,6 @@ module.exports = function sendOrderInfo(orderData) {
     </table>
     ${table}`;
 
-    //  EMAIL_SENDER.sendMessageToEmail(finalMessage);
     tlg_message += "----------------------------------\n";
     tlg_message += `Телефон : ${orderData.phone}\n`;
     tlg_message += `Улица : ${orderData.street}\n`;
@@ -110,5 +102,10 @@ module.exports = function sendOrderInfo(orderData) {
     tlg_message += `Квартира : ${orderData.flat}\n`;
     tlg_message += `Комментарий : ${orderData.comment}\n`;
 
-    TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);
+    console.log(finalMessage);
+
+    console.log(tlg_message);
+
+    //  EMAIL_SENDER.sendMessageToEmail(finalMessage);
+    // TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);
 }

@@ -9,8 +9,8 @@
             Доставка
         </div>
         <div class="ro_delivery_price">
-            <!-- <span class="ro_delivery_price__summ">999</span>
-            <span class="ro_delivery__curr"> руб.</span> -->
+            <span class="ro_delivery_price__summ"></span>
+            <span class="ro_delivery__curr"></span>
         </div>
     </div>
 
@@ -42,21 +42,12 @@
             <div class="ro_contact__comment">
                 <textarea type="text" name="comment" id="comment" placeholder="Комментарий"></textarea>
             </div>
-            <div class="ro_send_products">
-                <!-- <input type="text" hidden name="order[]" id="order" value='{"1":"VAL1"}'>
-                <input type="text" hidden name="order[]" id="order" value='{"2":"VAL2"}'> -->
-            </div>
+            <div class="ro_send_products"></div>
             <div class="ro_buttons">
-                <button type="button" onclick="bla()" class="ro_buttons__cancel">Отмена</button>
+                <button type="button" onclick="closeRegisterOrderPage()" class="ro_buttons__cancel">Отмена</button>
                 <button type="submit" class="ro_buttons__send">Отправить</button>
             </div>
         </form>
     </div>
 
 </div>
-
-<script>
-    function bla() {
-        alert('bla');
-    }
-</script>

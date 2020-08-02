@@ -20,7 +20,7 @@ function bascketHandler(pl, dc, st) {
     })
 
     b2.addEventListener('click', function(e) {
-        removeChildren(pl);
+        removeBasketChildren(pl);
     })
 
     b3.addEventListener('click', function(e) {
@@ -29,9 +29,10 @@ function bascketHandler(pl, dc, st) {
             p4.style.display = 'none';
             registerOrderPage.style.display = "grid";
             let registerOrderProductList = document.querySelector("div.register_order__info div.ro_product_list");
+
             let plItems = pl.querySelectorAll("div.product_list__item");
             let roSendProducts = document.querySelector('.ro_send_products');
-
+            removeChildren(registerOrderProductList);
             registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts);
 
             roFillTotal(pl, registerOrderPage)
@@ -46,6 +47,22 @@ function registerOrderProductsFilling(plItems, registerOrderProductList, roSendP
         let id = elt.getAttribute('data-id');
         let weight = elt.getAttribute('data-weight');
         let name = elt.querySelector("div.elt_name");
+        let eWeight = elt.querySelector("div.elt_weight");
+        let cost = elt.querySelector("div.elt_price");
+
+        let ro_name = document.createElement('div');
+        ro_name.classList.add('elt_name');
+        ro_name.appendChild(document.createTextNode(name.textContent));
+
+        let ro_eWeight = document.createElement('div');
+        ro_eWeight.classList.add('elt_weight');
+        ro_eWeight.appendChild(document.createTextNode(eWeight.textContent));
+
+        let ro_cost = document.createElement('div');
+        ro_cost.classList.add('elt_price');
+        ro_cost.appendChild(document.createTextNode(cost.textContent));
+
+
 
         let order = document.createElement('input');
         order.setAttribute('type', 'text');
@@ -54,14 +71,13 @@ function registerOrderProductsFilling(plItems, registerOrderProductList, roSendP
         order.setAttribute("value", `{"id":"${id}","weight":"${weight}"}`)
         roSendProducts.appendChild(order);
 
-        let eWeight = elt.querySelector("div.elt_weight");
-        let cost = elt.querySelector("div.elt_price");
+
         let roProductListItem = document.createElement('div');
         roProductListItem.classList.add('ro_product_list__item');
 
-        roProductListItem.appendChild(name);
-        roProductListItem.appendChild(eWeight);
-        roProductListItem.appendChild(cost);
+        roProductListItem.appendChild(ro_name);
+        roProductListItem.appendChild(ro_eWeight);
+        roProductListItem.appendChild(ro_cost);
         roProductListItem.setAttribute('data-id', id);
         roProductListItem.setAttribute('data-weight', weight);
         registerOrderProductList.appendChild(roProductListItem);
@@ -77,22 +93,16 @@ function roFillTotal(pl, registerOrderPage) {
     roTc.textContent = roTotal;
 
     let rodp = roInf.querySelector("div.ro_delivery_price");
-    let rodpSumm = document.createElement('span');
-    let rodpCurr = document.createElement('span');
-    rodpSumm.classList.add('ro_delivery_price__summ');
-    rodpCurr.classList.add('ro_delivery_price__curr');
+    let rodpSumm = rodp.querySelector('.ro_delivery_price__summ');
+    let rodpCurr = rodp.querySelector('.ro_delivery__curr');
+    rodpSumm.textContent = '';
+    rodpCurr.textContent = '';
 
-    if (roTotal > 1000) {
+    if (roTotal >= 1000) {
         rodpSumm.textContent = "Бесплатно";
-        rodp.appendChild(rodpSumm);
     } else {
         rodpSumm.textContent = 150;
         roTc.textContent = roTotal + Number(rodpSumm.textContent);
-        rodpCurr.textContent = ' руб'
-        rodp.appendChild(rodpSumm);
-        rodp.appendChild(rodpCurr);
+        rodpCurr.textContent = ' руб.'
     }
-
-
-
 }

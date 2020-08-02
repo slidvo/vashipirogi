@@ -27,13 +27,11 @@ function isSelected(elt, st) {
     return elt.classList.contains(st);
 }
 
-function removeChildren(pl) {
+function removeBasketChildren(pl) {
     let basketInfo = pl.parentElement;
     let totalPrice = basketInfo.querySelector("div.total_price__item");
     // console.log(totalPrice.textContent);
-    while (pl.firstChild) {
-        pl.removeChild(pl.firstChild);
-    }
+    removeChildren(pl);
     totalPrice.textContent = 0;
 
     let btnSelected = document.querySelectorAll("div.btn_add_text");
@@ -44,6 +42,12 @@ function removeChildren(pl) {
         }
     });
 
+}
+
+function removeChildren(node) {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
 }
 
 function basketFilling(pl, tPi, product) { //sp.id name weight price
@@ -99,5 +103,10 @@ function eltRemoveListener(elt, tPi) {
     });
 }
 
-
+function closeRegisterOrderPage() {
+    let basketPage = document.getElementById('page-4');
+    let ropage = document.getElementById('register_order');
+    ropage.style.display = "none";
+    basketPage.style.display = "grid";
+}
 indexHandler();
