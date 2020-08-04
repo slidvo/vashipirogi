@@ -39,8 +39,6 @@ module.exports = function sendOrderInfo(orderData) {
     });
 
     if (total < 1000) {
-        console.log('plused')
-        total += Number(deliveryCost);
         table += `
         <tr>
             <td></td>
@@ -101,9 +99,6 @@ module.exports = function sendOrderInfo(orderData) {
     tlg_message += `Подъезд : ${orderData.entrance}\n`;
     tlg_message += `Квартира : ${orderData.flat}\n`;
     tlg_message += `Комментарий : ${orderData.comment}\n`;
-
-    console.log(finalMessage);
-    console.log(tlg_message);
 
     EMAIL_SENDER.sendMessageToEmail(finalMessage);
     TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);

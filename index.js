@@ -1,5 +1,6 @@
 const fs = require('fs');
 const https = require('https');
+const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -22,8 +23,9 @@ app.use('/', routes);
 
 
 const appHttps = https.createServer(certificates, app)
-    .listen(8000, "192.168.1.248");
-
+    .listen(443, "192.168.1.248");
 appHttps.on("listening", () => {
     console.log("Server is working");
 });
+
+const appHttp = http.createServer(app).listen(80, "192.168.1.248")

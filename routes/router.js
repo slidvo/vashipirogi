@@ -10,6 +10,8 @@ router.get('/thnx', controllers.get.thnx);
 //Ignore flavicon.ico
 router.get('/favicon.ico', (req, res) => res.status(204))
 
+router.get('*', (req, res) => { res.redirect('/') })
+
 //POST
 router.post('/create/order', controllers.post.create.order);
 
