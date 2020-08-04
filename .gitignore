@@ -1,5 +1,4 @@
-certs/forBrow.pfx
-certs/private.key
+certs/
 node_modules/
 .env
 configs/nmconf.js
