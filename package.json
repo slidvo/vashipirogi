@@ -1,30 +1,30 @@
 {
-  "name": "vashipirogi",
-  "version": "1.0.0",
-  "description": "web site for delivery pies",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ilgeion86/vashipirogi.git"
-  },
-  "author": "Kopeyka Vyacheslav",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ilgeion86/vashipirogi/issues"
-  },
-  "homepage": "https://github.com/ilgeion86/vashipirogi#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "node-telegram-bot-api": "^0.50.0",
-    "nodemailer": "^6.4.10"
-  },
-  "devDependencies": {
-    "ejs": "^3.1.3",
-    "minify": "^5.1.1",
-    "nodemon": "^2.0.4"
-  }
+    "name": "vashipirogi",
+    "version": "1.0.0",
+    "description": "web site for delivery pies",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ilgeion86/vashipirogi.git"
+    },
+    "author": "Kopeyka Vyacheslav",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ilgeion86/vashipirogi/issues"
+    },
+    "homepage": "https://github.com/ilgeion86/vashipirogi#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "fs": "0.0.1-security",
+        "node-telegram-bot-api": "^0.50.0",
+        "nodemailer": "^6.4.10"
+    },
+    "devDependencies": {
+        "ejs": "^3.1.3",
+        "minify": "^5.1.1",
+        "nodemon": "^2.0.4"
+    }
 }

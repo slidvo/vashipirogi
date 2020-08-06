@@ -1,1 +1,0 @@
-function buttonWeightHandler(t,e,n,s,a){t.forEach(t=>{isSelected(t,a)||t.addEventListener("click",i=>{let o=t.getAttribute("data-price");e.textContent=o||"unkonwn",removeClassNameFromNodeList(n,a),t.classList.add(a),s.classList.contains(a)&&(s.classList.remove(a),s.textContent="Выбрать")})})}

@@ -7,6 +7,7 @@ function buttonWeightHandler(weightButtons,
         //click to a weight
         if (!isSelected(elt, st)) {
             elt.addEventListener("click", e => {
+                e.stopPropagation()
                 let price = elt.getAttribute("data-price");
                 if (price) {
                     priceForWeight.textContent = price;

@@ -1,1 +1,0 @@
-function buttonAddProductToCartHandler(t, e, i, n, a, c, d, r) { i.addEventListener("click", function(i) { c.classList.contains(r) || n.forEach(function(i) { isSelected(i, r) && (c.classList.add(r), c.textContent = "В корзине", basketFilling(t, e, { id: d, name: a, dWeight: i.getAttribute("data-weight"), weight: i.innerText, price: i.getAttribute("data-price") })) }) }) }

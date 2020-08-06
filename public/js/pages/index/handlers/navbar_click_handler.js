@@ -1,1 +1,0 @@
-function navbarClickHandler(e){let a=document.querySelector("div.navbar").querySelectorAll("div.navbar_links div.navbar_item");Array.from(a).forEach(function(r){r.addEventListener("click",function(n){removeClassNameFromNodeList(a,e),isSelected(r,e)||r.classList.add(e)})})}
