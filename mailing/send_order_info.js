@@ -39,6 +39,7 @@ module.exports = function sendOrderInfo(orderData) {
     });
 
     if (total < 1000) {
+        total += Number(deliveryCost);
         table += `
         <tr>
             <td></td>

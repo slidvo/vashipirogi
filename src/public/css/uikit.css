@@ -1,0 +1,8 @@
+.selected {
+    background-color: tan;
+    color: white;
+}
+
+.selected>a {
+    color: white;
+}

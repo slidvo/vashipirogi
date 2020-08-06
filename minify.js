@@ -23,7 +23,8 @@ let cssForMinify = [
     'src/public/css/navbar.css',
     'src/public/css/page-4.css',
     'src/public/css/register_order.css',
-    'src/public/css/basket_button.css'
+    'src/public/css/cart.css',
+    'src/public/css/uikit.css'
 ]
 let minFiles = new Map([
     ['index', './public/js/pages/index/index.min.js'],

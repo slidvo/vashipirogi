@@ -50,42 +50,45 @@ function removeChildren(node) {
         node.removeChild(node.firstChild)
     }
 }
-
+//TODO оптимизировать функцию
 function basketFilling(pl, tPi, product) { //sp.id name weight price
     let productListItem = document.createElement('div');
     productListItem.classList.add('product_list__item');
     let elt_remove = document.createElement("div");
     elt_remove.classList.add('elt_remove');
-    let img = document.createElement('img');
-    img.src = "images/quit.png";
-    elt_remove.appendChild(img);
+    // let img = document.createElement('img');
+    // img.src = "images/quit.png";
+    // elt_remove.appendChild(img);
+    elt_remove.insertAdjacentHTML('afterbegin', '<img src="images/quit.png" alt="X">')
     eltRemoveListener(elt_remove, tPi);
 
     productListItem.appendChild(elt_remove);
+    let text = `<div class="elt_name">${product.name}</div>
+    <div class="elt_weight">${product.weight}</div>    
+    <div class="elt_price">${product.price}</div>`
+        // let elt_name = document.createElement('div');
+        // let elt_weight = document.createElement('div');
+        // let elt_price = document.createElement('div');
 
-    let elt_name = document.createElement('div');
-    let elt_weight = document.createElement('div');
-    let elt_price = document.createElement('div');
+    // elt_name.classList.add('elt_name');
+    // elt_weight.classList.add('elt_weight');
+    // elt_price.classList.add('elt_price');
 
-    elt_name.classList.add('elt_name');
-    elt_weight.classList.add('elt_weight');
-    elt_price.classList.add('elt_price');
-
-    elt_name.appendChild(document.createTextNode(product.name));
-    elt_weight.appendChild(document.createTextNode(product.weight));
-    elt_price.appendChild(document.createTextNode(product.price));
+    // elt_name.appendChild(document.createTextNode(product.name));
+    // elt_weight.appendChild(document.createTextNode(product.weight));
+    // elt_price.appendChild(document.createTextNode(product.price));
 
     productListItem.setAttribute('data-id', product.id);
     productListItem.setAttribute('data-weight', product.dWeight);
-    productListItem.appendChild(elt_name);
-    productListItem.appendChild(elt_weight);
-    productListItem.appendChild(elt_price);
+    // productListItem.appendChild(elt_name);
+    // productListItem.appendChild(elt_weight);
+    // productListItem.appendChild(elt_price);
+    productListItem.insertAdjacentHTML('beforeend', text)
 
     pl.appendChild(productListItem);
 
     let result = Number(product.price) + Number(tPi.textContent);
     tPi.textContent = result;
-
 }
 
 function eltRemoveListener(elt, tPi) {

@@ -1,59 +1,44 @@
-.navbar,
-.navbar_links,
-.navbar_item,
-.navbar_item a {
-    height: 50px;
-}
-
 div.navbar {
     display: grid;
     position: fixed;
     width: 100vw;
     bottom: 0;
     grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-    align-items: center;
     background-color: #F7E8D8;
     grid-template-areas: ". links .";
     box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
+    height: 70px;
+    border-radius: 5px 5px 0 0;
 }
 
 .navbar_links {
     grid-area: links;
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 50px;
+    grid-template-columns: repeat(3, 1fr);
     gap: 5px;
+    align-items: center;
 }
 
 .navbar_item {
-    border-top: 5px solid rgba(210, 180, 140, 0.8);
+    border-radius: 0 0 10px 10px;
+    height: 70px;
+    justify-content: center;
+    background-color: #ebddcb;
 }
 
 .navbar_item:hover {
-    border-top: 5px solid rgba(210, 180, 140, 1);
-    background-color: rgba(210, 180, 140, 0.4);
+    box-shadow: 0 0 5px rgba(50, 50, 50);
 }
 
 .navbar_item a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+    position: relative;
+    text-align: center;
     display: block;
-}
-
-@media screen and (max-width:620px) {
-    div.navbar {
-        grid-template-areas: "links links links";
-    }
-    .navbar_links {
-        grid-area: links;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr) 40px;
-    }
-    .navbar,
-    .navbar_links,
-    .navbar_item,
-    .navbar_item a {
-        height: 40px;
-    }
+    padding: 5px;
+    height: 70px;
+    top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(43, 33, 13, 1);
 }

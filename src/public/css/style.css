@@ -230,7 +230,6 @@ body {
     grid-area: buttonAdd;
     margin-left: 5px;
     margin-top: 15px;
-    /* border: 1px solid black; */
     display: grid;
     grid-template-columns: 2fr repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -238,7 +237,6 @@ body {
 }
 
 .cstyle {
-    /* border: 3px solid rgba(181, 137, 87, 0.5); */
     border: 3px solid tan;
     margin-right: 5px;
     font-size: 24px;
@@ -268,13 +266,7 @@ body {
 .t-price,
 .tp-price {
     display: grid;
-    /* border: 1px solid black; */
     font-size: 20px;
     justify-content: center;
     align-items: center;
-}
-
-.selected {
-    background-color: tan;
-    color: white;
 }

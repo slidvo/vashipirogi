@@ -1,9 +1,0 @@
-div.button_basket img {
-    height: 40px;
-}
-
-@media screen and (max-width:620px) {
-    div.button_basket img {
-        height: 30px;
-    }
-}
