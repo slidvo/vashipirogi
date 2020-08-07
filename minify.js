@@ -28,10 +28,12 @@ let cssForMinify = [
 ]
 let minFiles = new Map([
     ['index', './public/js/pages/index/index.min.js'],
-    ['styles', './public/css/styles.min.css']
+    ['styles', './public/css/styles.min.css'],
+    ['thnx_css', './public/css/thnx.min.css']
 ])
 let indexMinPath = minFiles.get('index')
 let styleMinPath = minFiles.get('styles')
+let thnxMinPath = minFiles.get('thnx_css')
 
 
 
@@ -45,7 +47,9 @@ filesForMinify.forEach((path) => { minifier(path, indexMinPath) })
 clearFile(styleMinPath)
 cssForMinify.forEach((path) => { minifier(path, styleMinPath) })
 
-//STOP
+clearFile(thnxMinPath)
+minifier('src/public/css/thnx.css', thnxMinPath)
+    //STOP
 
 
 
