@@ -13,16 +13,9 @@ function bascketHandler(pl, dc, st) {
             let dlCost = document.querySelector('div.dlCost')
             let dlCurr = document.querySelector('div.dlInfo-2')
             let basketTotalPrice = document.querySelector('.total_price__item')
-            if (Number(basketTotalPrice.textContent) >= 1000) {
-                dlCost.textContent = '';
-                dlCost.textContent = '0';
-                dlCurr.textContent = 'р.';
 
-            } else {
-                dlCost.textContent = '';
-                dlCost.textContent = '150';
-                dlCurr.textContent = ' р.';
-            }
+            setDeliveryPrice(basketTotalPrice.textContent, dlCost, dlCurr)
+
         } else {
             alert("Корзина пустая :(")
         }
@@ -35,13 +28,23 @@ function bascketHandler(pl, dc, st) {
         Array.from(btnSelected).forEach(function(elt) {
             if (isSelected(elt, 'selected')) {
                 elt.classList.remove('selected'); //TODO : Must add const st
-                elt.textContent = 'Выбрать';
+                elt.innerHTML = 'Выбрать';
             }
         });
     })
 
-    b2.addEventListener('click', function(e) {
+    b2.addEventListener('click', function() {
+        //TODO Оптимизировать
         removeBasketChildren(pl);
+
+        //cart_count
+        let cartCount = document.querySelector('.cart_count')
+        cartCount.innerHTML = 0;
+        let dlCost = document.querySelector('.dlCost')
+        dlCost.innerHTML = 0;
+        let p4 = document.getElementById('page-4');
+
+        p4.style.display = 'none'
     })
 
     b3.addEventListener('click', function(e) {
@@ -65,6 +68,7 @@ function bascketHandler(pl, dc, st) {
 
 function registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts) {
     Array.from(plItems).forEach(function(elt) {
+        //TODO OPTIMIZIROVATb!!!
         let id = elt.getAttribute('data-id');
         let weight = elt.getAttribute('data-weight');
         let name = elt.querySelector("div.elt_name");

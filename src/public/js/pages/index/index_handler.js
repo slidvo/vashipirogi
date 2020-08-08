@@ -92,16 +92,7 @@ function eltRemoveListener(elt, tPi) {
         tPi.textContent = Number(tPi.textContent) - Number(itemCost.textContent);
         parent.removeChild(plItem);
 
-        //TODO : Update delivery value FUNCTION!!!!        
-        if (Number(tPi.textContent) >= 1000) {
-            if (dlCost.textContent != 0) {
-                dlCost.innerHTML = '0';
-                dlCurr.innerHTML = 'р. '
-            }
-        } else if (dlCost.textContent != 150) {
-            dlCost.innerHTML = '150'
-            dlCurr.innerHTML = ' р. '
-        }
+        setDeliveryPrice(tPi.textContent, dlCost, dlCurr)
 
         if (parent.firstChild === null) {
             let p4 = document.getElementById('page-4');
@@ -120,4 +111,18 @@ function closeRegisterOrderPage() {
     ropage.style.display = "none";
     basketPage.style.display = "grid";
 }
+
+function setDeliveryPrice(total, dlCost, dlCurr) {
+    if (total >= 1000) {
+        if (dlCost.textContent != 0) {
+            dlCost.innerHTML = '0';
+            dlCurr.innerHTML = 'р. '
+        }
+    } else if (dlCost.textContent != 150) {
+        dlCost.innerHTML = '150'
+        dlCurr.innerHTML = ' р. '
+    }
+}
+
+
 indexHandler();
