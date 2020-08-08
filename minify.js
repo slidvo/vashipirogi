@@ -75,7 +75,7 @@ function clearFile(path) {
         if (err) {
             checkErr(err)
         } else {
-            fs.truncate(path, 0, () => { console.log("file : " + path + "was updated") })
+            fs.truncate(path, 0, () => { console.log("file : " + path + " was updated") })
         }
     })
 }

@@ -56,39 +56,30 @@ function basketFilling(pl, tPi, product) { //sp.id name weight price
     productListItem.classList.add('product_list__item');
     let elt_remove = document.createElement("div");
     elt_remove.classList.add('elt_remove');
-    // let img = document.createElement('img');
-    // img.src = "images/quit.png";
-    // elt_remove.appendChild(img);
+
     elt_remove.insertAdjacentHTML('afterbegin', '<img src="images/quit.png" alt="X">')
     eltRemoveListener(elt_remove, tPi);
 
     productListItem.appendChild(elt_remove);
+
     let text = `<div class="elt_name">${product.name}</div>
     <div class="elt_weight">${product.weight}</div>    
     <div class="elt_price">${product.price}</div>`
-        // let elt_name = document.createElement('div');
-        // let elt_weight = document.createElement('div');
-        // let elt_price = document.createElement('div');
 
-    // elt_name.classList.add('elt_name');
-    // elt_weight.classList.add('elt_weight');
-    // elt_price.classList.add('elt_price');
-
-    // elt_name.appendChild(document.createTextNode(product.name));
-    // elt_weight.appendChild(document.createTextNode(product.weight));
-    // elt_price.appendChild(document.createTextNode(product.price));
 
     productListItem.setAttribute('data-id', product.id);
     productListItem.setAttribute('data-weight', product.dWeight);
-    // productListItem.appendChild(elt_name);
-    // productListItem.appendChild(elt_weight);
-    // productListItem.appendChild(elt_price);
+
     productListItem.insertAdjacentHTML('beforeend', text)
 
     pl.appendChild(productListItem);
 
     let result = Number(product.price) + Number(tPi.textContent);
     tPi.textContent = result;
+
+    //cart_count
+    let cartCount = document.querySelector('.cart_count')
+    cartCount.innerHTML = Number(cartCount.textContent) + 1
 }
 
 function eltRemoveListener(elt, tPi) {
@@ -103,21 +94,23 @@ function eltRemoveListener(elt, tPi) {
 
         //TODO : Update delivery value FUNCTION!!!!        
         if (Number(tPi.textContent) >= 1000) {
-            dlCost.textContent = '';
-            dlCost.textContent = '0';
-            dlCurr.textContent = 'р.';
+            if (dlCost.textContent != 0) {
+                dlCost.innerHTML = '0';
+                dlCurr.innerHTML = 'р. '
+            }
+        } else if (dlCost.textContent != 150) {
+            dlCost.innerHTML = '150'
+            dlCurr.innerHTML = ' р. '
+        }
 
-        } else {
-            dlCost.textContent = '';
-            dlCost.textContent = '150';
-            dlCurr.textContent = ' р.';
+        if (parent.firstChild === null) {
+            let p4 = document.getElementById('page-4');
+            p4.style.display = 'none'
         }
-        if (!parent.firstChild) {
-            let p4 = document.querySelector('.page-4');
-            p4.classList.remove('show');
-            p4.classList.add('close');
-            tPi.textContent = 0;
-        }
+
+        //cart_count
+        let cartCount = document.querySelector('.cart_count')
+        cartCount.innerHTML = Number(cartCount.textContent) - 1
     });
 }
 
