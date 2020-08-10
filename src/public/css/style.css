@@ -1,3 +1,9 @@
+:root {
+    --main-bg-color: #faf0e4;
+    --main-font-color: #532921;
+    --sec-font-color: #c3651f;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,12 +15,18 @@
     user-select: none;
 }
 
+@font-face {
+    font-family: 'RawerCR';
+    src: url('../fonts/RawerCR.ttf');
+}
+
 html,
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #E8D3BE;
+    font-family: 'RawerCR', Helvetica, sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
 }
 
 .grid-container {
@@ -27,36 +39,22 @@ body {
     width: 100vw;
     grid-area: header;
     display: grid;
-    background: rgba(244, 244, 244, 0.2);
-    /* background: linear-gradient(180deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%); */
-    /* grid-row: 240px 50px; */
-    grid-template-areas: "logo" "slogan" "hinfo";
+    background: white;
+    grid-template-areas: "logo";
 }
 
 .logo {
     grid-area: logo;
-    /* border: 1px solid black; */
     text-align: center;
 }
 
 .logo img {
-    width: 120px;
+    width: 150px;
 }
 
-.slogan {
-    grid-area: slogan;
-    font-size: 24px;
-    font-weight: bold;
-    color: rgba(216, 174, 119, 1);
-}
-
-.hInfo a {
-    grid-area: hinfo;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: 700;
-    color: whitesmoke;
-    text-shadow: 0 0 3px black;
+.city {
+    font-size: 18px;
+    font-weight: 555;
 }
 
 .page-1 {
@@ -93,6 +91,7 @@ body {
     /* border: 1px solid black; */
     font-weight: bold;
     font-size: 24px;
+    color: var(--sec-font-color);
 }
 
 .sp_content {
@@ -158,11 +157,10 @@ body {
     display: grid;
     width: 304px;
     grid-template-areas: "photo" "." "name" "." "weights" "." "buttonAdd";
-    /* border: 3px solid tan; */
     border-radius: 15px;
-    box-shadow: 0 0 5px whitesmoke;
+    box-shadow: 0 0 5px rgba(50, 50, 50, 0.4);
     padding: 2px 2px 15px 2px;
-    background-color: rgba(240, 240, 240, 0.8);
+    background-color: white;
     margin: 5px;
 }
 
@@ -192,6 +190,7 @@ body {
     grid-area: productName;
     font-weight: bold;
     font-size: 24px;
+    padding: 4px;
 }
 
 .name .filling {
@@ -215,24 +214,24 @@ body {
     margin: 0 5px 0 0;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 10px;
     height: 35px;
     align-items: center;
     display: grid;
 }
 
 .weights_item:hover {
-    background-color: tan;
+    background-color: var(--main-bg-color);
     box-shadow: 0 0 5px rgba(180, 150, 160, 1);
     border: none;
-    color: white;
+    color: var(--sec-font-color);
 }
 
 .button-add {
     grid-area: buttonAdd;
+    display: grid;
     margin-left: 5px;
     margin-top: 15px;
-    display: grid;
     grid-template-columns: 2fr repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-template-areas: "btn_add_text t_price tp_price ";
@@ -243,18 +242,20 @@ body {
     margin-right: 5px;
     font-size: 24px;
     font-weight: bold;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .btn_add_text {
     grid-area: btn_add_text;
     text-align: center;
+    padding: 4px;
 }
 
 .btn_add_text:hover {
-    background-color: tan;
+    background-color: var(--main-bg-color);
+    border: 3px solid var(--main-bg-color);
     box-shadow: 0 0 5px rgba(180, 150, 160, 1);
-    color: white;
+    color: var(--sec-font-color);
 }
 
 .t-price {

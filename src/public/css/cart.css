@@ -13,15 +13,13 @@
     position: absolute;
     top: 42px;
     left: 10px;
-    width: 22px;
+    width: 18px;
+    background-color: red;
+    border-radius: 9px;
     color: white;
     text-align: center;
-    text-shadow: 0 0 1px black;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: rgba(224, 42, 42, 0.75);
-    border-radius: 11.5px;
-    padding: 2px;
+    justify-content: center;
+    padding-top: 2px;
 }
 
 .button_basket>img {

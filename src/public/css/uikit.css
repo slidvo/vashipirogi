@@ -1,8 +1,8 @@
 .selected {
-    background-color: tan;
-    color: white;
+    background-color: #faf0e4;
+    color: #c3651f;
 }
 
 .selected>a {
-    color: white;
+    color: #c3651f;
 }
