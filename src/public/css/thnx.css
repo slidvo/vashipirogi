@@ -7,18 +7,19 @@
 
 .thnx_grid__item {
     text-align: center;
-    font-size: 32px;
+    font-size: 48px;
+    font-weight: bold;
     color: #4a221a;
 }
 
 .thnx_grid__item>img {
-    width: 720px;
+    width: 640px;
 }
 
 .thnx_grid__item>a {
     text-decoration: none;
     color: #b95813;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: 600;
     padding: 5px;
     border-radius: 10px;

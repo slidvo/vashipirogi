@@ -1,7 +1,6 @@
 require('dotenv').config();
 const fs = require('fs');
 const https = require('https');
-const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -29,4 +28,9 @@ appHttps.on("listening", () => {
     console.log("Server is working");
 });
 
-const appHttp = http.createServer(app).listen(process.env.HTTP_PORT, process.env.HOST)
+// Redirect from http port 80 to https
+let http = require('http');
+http.createServer(function(req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(process.env.HTTP_PORT, process.env.HOST);
