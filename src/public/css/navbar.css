@@ -4,9 +4,9 @@ div.navbar {
     width: 100vw;
     bottom: 0;
     grid-template-columns: repeat(3, 1fr);
-    background-color: #F7E8D8;
+    background-color: white;
     grid-template-areas: ". links .";
-    box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
+    box-shadow: 0 0 8px var(--main-hf-shadow);
     height: 50px;
     border-radius: 5px 5px 0 0;
 }
@@ -25,7 +25,7 @@ div.navbar {
     border-radius: 0 0 10px 10px;
     height: 40px;
     justify-content: center;
-    background-color: #ebddcb;
+    background-color: var(--main-bg-color);
 }
 
 .navbar_item:hover {
