@@ -9,6 +9,8 @@ function indexHandler() {
 
     bascketHandler(productList, deliveryCost, st);
 
+    scrollAnimation();
+
     // setTimeout(function() {
     //     alertCookie();
     // }, 1000)

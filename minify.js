@@ -14,6 +14,7 @@ let filesForMinify = [
     'src/public/js/pages/index/handlers/button_weight_handler.js',
     'src/public/js/pages/index/handlers/navbar_click_handler.js',
     'src/public/js/pages/index/handlers/productCardHandler.js',
+    'src/public/js/pages/index/handlers/scroll_animation.js',
     'src/public/js/pages/index/alert_cookie.js',
     'src/public/js/pages/index/index_handler.js'
 ]
