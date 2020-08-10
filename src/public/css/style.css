@@ -39,16 +39,18 @@ body {
 .header {
     width: 100vw;
     grid-area: header;
-    display: grid;
     background: white;
     box-shadow: 0 0 8px var(--main-hf-shadow);
     border-radius: 0 0 5px 5px;
-    grid-template-areas: "logo";
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
 }
 
-.logo {
-    grid-area: logo;
-    text-align: center;
+.logo>div {
+    position: relative;
+    margin: 0 auto;
+    width: 150px;
 }
 
 .logo img {
@@ -56,8 +58,15 @@ body {
 }
 
 .city {
-    font-size: 18px;
-    font-weight: 555;
+    position: absolute;
+    top: 0;
+}
+
+.phoneLink>a {
+    color: var(--main-font-color);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .page-1 {
@@ -103,8 +112,6 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-@media screen and (max-width:2550px) {}
-
 @media screen and (max-width:2300px) {
     .sp_content {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -132,15 +139,6 @@ body {
 @media screen and (max-width:950px) {
     .sp_content {
         grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media screen and (orientation:landscape) and (max-width:950px) {
-    .header {
-        top: -120px;
-    }
-    .page-1 {
-        margin-top: 80px;
     }
 }
 
