@@ -12,8 +12,9 @@ function indexHandler() {
     scrollAnimation();
 
     // setTimeout(function() {
-    //     alertCookie();
-    // }, 1000)
+    //     alert('Используя сайт, вы даете согласие на обработку файлов ' +
+    //         'cookie и пользовательских данных. ');
+    // }, 500)
 }
 
 //delete classname from nodelist
@@ -32,7 +33,7 @@ function isSelected(elt, st) {
 function removeBasketChildren(pl) {
     let basketInfo = pl.parentElement;
     let totalPrice = basketInfo.querySelector("div.total_price__item");
-    // console.log(totalPrice.textContent);
+
     removeChildren(pl);
     totalPrice.textContent = 0;
 

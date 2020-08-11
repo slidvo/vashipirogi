@@ -21,7 +21,6 @@ module.exports = function sendOrderInfo(orderData, orderId) {
     orderData.order.forEach(function(elt) {
         let item = JSON.parse(elt);
         pl.getPriceByIdAndWeigth(item.id, item.weight, function(item_cost) {
-            console.log('item_cost: ' + item_cost)
             total += Number(item_cost);
 
             cl.getCakeNameById(item.id, function(pieName) {
@@ -59,8 +58,6 @@ module.exports = function sendOrderInfo(orderData, orderId) {
 
         tlg_message += `Доставка: Бесплатно\n`;
     }
-
-    console.log("Total : " + total);
 
     tlg_message += `<b>Сумма к оплате ${total} руб.</b>\n`;
     table += `
