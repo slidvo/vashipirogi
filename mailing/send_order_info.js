@@ -3,13 +3,12 @@ const TELEGRAM_SENDER = require("./telegram/tlg_msg");
 const PriceList = require('../model/price');
 const Cake = require('../model/products');
 
-module.exports = function sendOrderInfo(orderData) {
+module.exports = function sendOrderInfo(orderData, orderId) {
     let deliveryCost = 150;
-    let orderId = Date.now();
     let pl = new PriceList();
     let cl = new Cake();
     let total = 0;
-    let tlg_message = `Заказ №${orderId}\n`;
+    let tlg_message = `Заказ № <b>${orderId}</b>\n`;
     let table = `
     <table style="text-align:center;" border=1>
     <caption>Закзаз №${orderId} cписок продуктов:</caption>

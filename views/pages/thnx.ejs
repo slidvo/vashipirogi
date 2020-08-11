@@ -2,15 +2,18 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/thnx.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/thnx.min.css">
 </head>
 
 <body>
     <div id="thnx">
         <div class="thnx_grid">
             <div class="thnx_grid__item">
-                <img src="images/logothnx.jpg" alt="">
+                <img src="/images/logothnx.jpg" alt="">
                 <div>Заказ принят</div>
+                <%if(id){%>
+                    <div>№ <%= id%> </div>
+                <%}%>
                 <a href="/">
                     На главную
                 </a>

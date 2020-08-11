@@ -17,17 +17,30 @@ get.index = function(req, res) {
     })
 }
 get.thnx = function(req, res) {
-    res.render('pages/thnx')
+    if (req.cookies["orderId"]) {
+        let id = req.cookies["orderId"];
+        res.clearCookie("orderId", { httpOnly: true })
+        res.render('pages/thnx.ejs', {
+            id: id
+        })
+    } else {
+        res.redirect(303, "/")
+    }
 }
 module.exports.get = get;
 
 //POST RESPONSES
 let post = Object.create(null);
 let create = Object.create(null);
-create.order = function(req, res) {
-    sendOrderInfo(req.body);
 
-    res.redirect('/thnx')
+create.order = function(req, res) {
+    let orderId = Date.now();
+    sendOrderInfo(req.body, orderId);
+
+    res.cookie('orderId', orderId, { httpOnly: true })
+    res.redirect(303, "/thnx")
 }
+
+
 post = { create }
 module.exports.post = post;

@@ -3,6 +3,7 @@ const fs = require('fs');
 const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser")
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,7 +16,7 @@ const certificates = {
     cert: fs.readFileSync("../certs/cert.crt"),
     key: fs.readFileSync("../certs/private.key")
 };
-
+app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 

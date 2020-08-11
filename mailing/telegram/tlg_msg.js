@@ -34,7 +34,7 @@ async function sendMessageToTelegramChannel(finalMessage) {
 
         //-1001157367727
         let result = await bot.sendMessage(TLG_CONF.channelUserName, finalMessage, { parse_mode: 'HTML' });
-        console.log(result);
+        // console.log(result);
     } catch (e) {
         console.error(e);
     }
