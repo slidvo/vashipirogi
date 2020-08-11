@@ -14,12 +14,12 @@ function generateTransporter() {
     });
 }
 
-async function sendMessageToEmail(htmlBody) {
+async function sendMessageToEmail(htmlBody, id) {
     let transporter = generateTransporter();
     let info = await transporter.sendMail({
         from: NM_CONF.email.from,
         to: NM_CONF.email.to,
-        subject: 'Информация о заказе',
+        subject: `Новый заказ №${id}`,
         text: 'Вам поступил заказ',
         html: htmlBody
     });

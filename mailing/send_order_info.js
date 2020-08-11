@@ -5,13 +5,14 @@ const Cake = require('../model/products');
 
 module.exports = function sendOrderInfo(orderData) {
     let deliveryCost = 150;
+    let orderId = Date.now();
     let pl = new PriceList();
     let cl = new Cake();
     let total = 0;
-    let tlg_message = '';
+    let tlg_message = `Заказ №${orderId}\n`;
     let table = `
     <table style="text-align:center;" border=1>
-    <caption>Список продуктов:</caption>
+    <caption>Закзаз №${orderId} cписок продуктов:</caption>
     <tr>
         <th>Название</th>
         <th>Вес</th>
@@ -101,6 +102,6 @@ module.exports = function sendOrderInfo(orderData) {
     tlg_message += `Квартира : ${orderData.flat}\n`;
     tlg_message += `Комментарий : ${orderData.comment}\n`;
 
-    EMAIL_SENDER.sendMessageToEmail(finalMessage);
+    EMAIL_SENDER.sendMessageToEmail(finalMessage, orderId);
     TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);
 }
