@@ -127,5 +127,8 @@ function setDeliveryPrice(total, dlCost, dlCurr) {
     }
 }
 
+function closeCookieMsg() {
+    document.getElementById('cmsgc').parentNode.parentNode.style.display = "none"
+}
 
 indexHandler();

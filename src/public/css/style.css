@@ -112,48 +112,6 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-@media screen and (max-width:2300px) {
-    .sp_content {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (max-width:2150px) {
-    .sp_content {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (max-width:1900px) {
-    .sp_content {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (max-width:1500px) {
-    .sp_content {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (max-width:950px) {
-    .sp_content {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media screen and (max-width:620px) {
-    .sp_content {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (max-width:360px) {
-    .header_menu_link {
-        grid-template-columns: repeat(3, 100px);
-    }
-}
-
 .product-card {
     display: grid;
     width: 304px;
@@ -273,4 +231,83 @@ body {
     font-size: 20px;
     justify-content: center;
     align-items: center;
+}
+
+.cookies_msg {
+    position: fixed;
+    display: grid;
+    width: 100vw;
+    font-size: 12px;
+    bottom: 0;
+    align-items: center;
+    text-align: center;
+    padding: 2px;
+    background-color: rgba(225, 225, 225, 0.9);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.cookies_msg div {
+    text-align: center;
+    box-shadow: 0 0 2px black;
+    color: black;
+}
+
+.cookies_msg div a {
+    color: var(--sec-font-color);
+    text-decoration: none;
+}
+
+.cookies_msg__close {
+    font-weight: bold;
+}
+
+@media screen and (max-width:2300px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:2150px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:1900px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .sp_content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width:620px) {
+    .sp_content {
+        grid-template-columns: 1fr;
+    }
+    .cookies_msg {
+        bottom: 60px;
+    }
+    .cookies_msg__item {
+        display: grid;
+        grid-template-columns: 1fr 15px;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:360px) {
+    .header_menu_link {
+        grid-template-columns: repeat(3, 100px);
+    }
 }
