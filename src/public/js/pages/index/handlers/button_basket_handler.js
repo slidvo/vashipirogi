@@ -1,5 +1,5 @@
 // page-4 handler
-function bascketHandler(pl, dc, st) {
+function bascketHandler(pl) {
     let btn = document.querySelector('div.button_basket');
     let p4 = document.querySelector('.page-4');
     let b1 = p4.querySelector('button.b1');
@@ -19,33 +19,26 @@ function bascketHandler(pl, dc, st) {
         } else {
             alert("Корзина пустая :(")
         }
-    });
+        e.stopPropagation()
+    }, false);
 
     b1.addEventListener('click', function(e) {
         p4.style.display = 'none';
-        let btnSelected = document.querySelectorAll("div.btn_add_text");
-        //TODO Function for change statuses of buttons
-        Array.from(btnSelected).forEach(function(elt) {
-            if (isSelected(elt, 'selected')) {
-                elt.classList.remove('selected'); //TODO : Must add const st
-                elt.innerHTML = 'Выбрать';
-            }
-        });
-    })
+        e.stopPropagation()
+    }, false)
 
-    b2.addEventListener('click', function() {
+    b2.addEventListener('click', function(e) {
         //TODO Оптимизировать
         removeBasketChildren(pl);
-
-        //cart_count
+        //cart_count reset
         let cartCount = document.querySelector('.cart_count')
         cartCount.innerHTML = 0;
         let dlCost = document.querySelector('.dlCost')
         dlCost.innerHTML = 0;
-        let p4 = document.getElementById('page-4');
 
-        p4.style.display = 'none'
-    })
+        document.getElementById('page-4').style.display = 'none';
+        e.stopPropagation();
+    }, false)
 
     b3.addEventListener('click', function(e) {
         let registerOrderPage = document.getElementById("register_order");
@@ -59,11 +52,10 @@ function bascketHandler(pl, dc, st) {
             removeChildren(registerOrderProductList);
             registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts);
 
-            roFillTotal(pl, registerOrderPage)
-
-
+            roFillTotal(pl, registerOrderPage);
         }
-    })
+        e.stopPropagation()
+    }, false)
 }
 
 function registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts) {
@@ -115,19 +107,19 @@ function roFillTotal(pl, registerOrderPage) {
 
     let roTc = roInf.querySelector("span.ro_total_cost__summ");
     let roTotal = Number(plTp.textContent);
-    roTc.textContent = roTotal;
+    roTc.innerHTML = roTotal;
 
     let rodp = roInf.querySelector("div.ro_delivery_price");
     let rodpSumm = rodp.querySelector('.ro_delivery_price__summ');
     let rodpCurr = rodp.querySelector('.ro_delivery__curr');
-    rodpSumm.textContent = '';
-    rodpCurr.textContent = '';
+
 
     if (roTotal >= 1000) {
-        rodpSumm.textContent = "Бесплатно";
+        rodpSumm.innerHTML = "Бесплатно";
+        rodpCurr.innerHTML = "";
     } else {
-        rodpSumm.textContent = 150;
-        roTc.textContent = roTotal + Number(rodpSumm.textContent);
-        rodpCurr.textContent = ' руб.'
+        rodpSumm.innerHTML = 150;
+        roTc.innerHTML = roTotal + Number(rodpSumm.textContent);
+        rodpCurr.innerHTML = ' руб.'
     }
 }

@@ -2,19 +2,13 @@ function indexHandler() {
     const st = 'selected';
     let productList = document.querySelector('div.basket_info div.product_list');
     let totalPriceItem = document.querySelector('div.basket_info div.total_price div.total_price__item');
-    let deliveryCost = 150;
     productCardHandler(productList, totalPriceItem, st);
-
-    navbarClickHandler(st);
-
-    bascketHandler(productList, deliveryCost, st);
 
     scrollAnimation();
 
-    // setTimeout(function() {
-    //     alert('Используя сайт, вы даете согласие на обработку файлов ' +
-    //         'cookie и пользовательских данных. ');
-    // }, 500)
+    bascketHandler(productList);
+
+
 }
 
 //delete classname from nodelist
@@ -60,7 +54,9 @@ function basketFilling(pl, tPi, product) { //sp.id name weight price
     let elt_remove = document.createElement("div");
     elt_remove.classList.add('elt_remove');
 
-    elt_remove.insertAdjacentHTML('afterbegin', '<img src="images/quit.png" alt="X">')
+    elt_remove
+        .insertAdjacentHTML('afterbegin', '<img src="images/quit.png" alt="X">')
+
     eltRemoveListener(elt_remove, tPi);
 
     productListItem.appendChild(elt_remove);
@@ -88,31 +84,36 @@ function basketFilling(pl, tPi, product) { //sp.id name weight price
 function eltRemoveListener(elt, tPi) {
     let dlCost = document.querySelector('div.dlCost')
     let dlCurr = document.querySelector('div.dlInfo-2')
-    elt.addEventListener('click', function(e) {
+    elt.addEventListener('click', () => {
         let plItem = elt.parentElement;
-        let itemCost = plItem.querySelector("div.elt_price");
         let parent = plItem.parentElement;
-        tPi.textContent = Number(tPi.textContent) - Number(itemCost.textContent);
-        parent.removeChild(plItem);
+        let pid = plItem.getAttribute('data-id');
+        tPi.textContent = Number(tPi.textContent) - Number(plItem.querySelector("div.elt_price").textContent);
 
+        document
+            .querySelector(`#pid-${pid} div.button-add div.btn_add_text`)
+            .classList
+            .remove('selected')
+
+        parent.removeChild(plItem);
         setDeliveryPrice(tPi.textContent, dlCost, dlCurr)
 
-        if (parent.firstChild === null) {
-            let p4 = document.getElementById('page-4');
-            p4.style.display = 'none'
-        }
+        document
+            .getElementById('page-4')
+            .style
+            .display = !parent.firstChild ? 'none' : ''
 
         //cart_count
         let cartCount = document.querySelector('.cart_count')
         cartCount.innerHTML = Number(cartCount.textContent) - 1
+
+
     });
 }
 
 function closeRegisterOrderPage() {
-    let basketPage = document.getElementById('page-4');
-    let ropage = document.getElementById('register_order');
-    ropage.style.display = "none";
-    basketPage.style.display = "grid";
+    document.getElementById('register_order').style.display = "none";
+    document.getElementById('page-4').style.display = "grid";
 }
 
 function setDeliveryPrice(total, dlCost, dlCurr) {

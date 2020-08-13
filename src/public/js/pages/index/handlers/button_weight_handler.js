@@ -3,16 +3,15 @@ function buttonWeightHandler(weightButtons,
     node_weights,
     buttonAddValue, st) {
 
-    weightButtons.forEach((elt) => {
+    weightButtons.forEach(elt => {
         //click to a weight
         if (!isSelected(elt, st)) {
             elt.addEventListener("click", e => {
-                e.stopPropagation()
                 let price = elt.getAttribute("data-price");
                 if (price) {
                     priceForWeight.textContent = price;
                 } else {
-                    priceForWeight.textContent = 'unkonwn';
+                    priceForWeight.textContent = 'err';
                 }
                 removeClassNameFromNodeList(node_weights, st);
                 elt.classList.add(st);
@@ -21,7 +20,6 @@ function buttonWeightHandler(weightButtons,
                     buttonAddValue.classList.remove(st)
                     buttonAddValue.textContent = 'Выбрать';
                 }
-
             });
         }
     });

@@ -4,11 +4,11 @@ function buttonAddProductToCartHandler(productList, totalPriceItem, button,
     text,
     pid,
     st) {
-    button.addEventListener("click", function(e) {
+    button.addEventListener("click", () => {
 
         if (!text.classList.contains(st)) {
 
-            weightButtons.forEach(function(elt) {
+            weightButtons.forEach((elt) => {
                 if (isSelected(elt, st)) {
                     text.classList.add(st);
                     text.textContent = 'В корзине';
