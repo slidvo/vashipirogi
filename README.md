@@ -11,3 +11,7 @@ A web-site for delivery pies.
   * SSL
   * Nodemailer - for send order info to email
   * bot-tlegram-api - for send order info to telegram
+
+add manually to server :
+ * views/metrika/metrika.ejs 
+ * ~/certs/
