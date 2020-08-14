@@ -1,16 +1,3 @@
-function indexHandler() {
-    const st = 'selected';
-    let productList = document.querySelector('div.basket_info div.product_list');
-    let totalPriceItem = document.querySelector('div.basket_info div.total_price div.total_price__item');
-    productCardHandler(productList, totalPriceItem, st);
-
-    scrollAnimation();
-
-    bascketHandler(productList);
-
-
-}
-
 //delete classname from nodelist
 function removeClassNameFromNodeList(nodeList, classElt) {
     Array.from(nodeList).forEach(elt => {
@@ -132,4 +119,12 @@ function closeCookieMsg() {
     document.getElementById('cmsgc').parentNode.parentNode.style.display = "none"
 }
 
-indexHandler();
+
+//Entry point main()
+(() => {
+    let productList = document.querySelector('div.basket_info div.product_list');
+    let totalPriceItem = document.querySelector('div.basket_info div.total_price div.total_price__item');
+    productCardHandler(productList, totalPriceItem);
+    scrollAnimation();
+    bascketHandler(productList);
+})()

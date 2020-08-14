@@ -4,22 +4,13 @@ function buttonWeightHandler(weightButtons,
     buttonAddValue, st) {
 
     weightButtons.forEach(elt => {
-        //click to a weight
         if (!isSelected(elt, st)) {
             elt.addEventListener("click", e => {
-                let price = elt.getAttribute("data-price");
-                if (price) {
-                    priceForWeight.textContent = price;
-                } else {
-                    priceForWeight.textContent = 'err';
-                }
+                priceForWeight.textContent = elt.getAttribute("data-price");
                 removeClassNameFromNodeList(node_weights, st);
                 elt.classList.add(st);
-
-                if (buttonAddValue.classList.contains(st)) {
-                    buttonAddValue.classList.remove(st)
-                    buttonAddValue.textContent = 'Выбрать';
-                }
+                buttonAddValue.classList.remove(st)
+                buttonAddValue.textContent = 'Выбрать';
             });
         }
     });

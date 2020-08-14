@@ -1,4 +1,5 @@
-function productCardHandler(productList, totalPriceItem, st) {
+function productCardHandler(productList, totalPriceItem) {
+    let st = "selected"
     let prCards = document.querySelectorAll("div.product-card");
     Array.from(prCards).forEach((productCard) => {
         let pid = productCard.getAttribute('data-pid');

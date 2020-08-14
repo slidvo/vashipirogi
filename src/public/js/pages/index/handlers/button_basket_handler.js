@@ -6,7 +6,7 @@ function bascketHandler(pl) {
     let b2 = p4.querySelector('button.b2');
     let b3 = p4.querySelector('button.b3');
 
-    btn.addEventListener('click', function(e) {
+    btn.addEventListener('click', () => {
         if (pl.firstChild) {
             p4.style.display = 'grid';
             //TODO : Update delivery value FUNCTION!!!!
@@ -19,85 +19,63 @@ function bascketHandler(pl) {
         } else {
             alert("Корзина пустая :(")
         }
-        e.stopPropagation()
-    }, false);
+    });
 
-    b1.addEventListener('click', function(e) {
+    b1.addEventListener('click', () => {
         p4.style.display = 'none';
-        e.stopPropagation()
-    }, false)
+    })
 
-    b2.addEventListener('click', function(e) {
-        //TODO Оптимизировать
-        removeBasketChildren(pl);
-        //cart_count reset
+    b2.addEventListener('click', () => {
         let cartCount = document.querySelector('.cart_count')
-        cartCount.innerHTML = 0;
         let dlCost = document.querySelector('.dlCost')
+        removeBasketChildren(pl);
+        removeChildren(document.querySelector('.ro_send_products'))
+            //cart_count reset
+        cartCount.innerHTML = 0;
         dlCost.innerHTML = 0;
-
         document.getElementById('page-4').style.display = 'none';
-        e.stopPropagation();
-    }, false)
 
-    b3.addEventListener('click', function(e) {
+    })
+
+    b3.addEventListener('click', () => {
         let registerOrderPage = document.getElementById("register_order");
         if (pl.firstChild) {
-            p4.style.display = 'none';
-            registerOrderPage.style.display = "grid";
             let registerOrderProductList = document.querySelector("div.register_order__info div.ro_product_list");
-
             let plItems = pl.querySelectorAll("div.product_list__item");
             let roSendProducts = document.querySelector('.ro_send_products');
-            removeChildren(registerOrderProductList);
-            registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts);
 
+            p4.style.display = 'none';
+            registerOrderPage.style.display = "grid";
+
+            removeChildren(registerOrderProductList);
+            removeChildren(roSendProducts);
+            registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts);
             roFillTotal(pl, registerOrderPage);
         }
-        e.stopPropagation()
-    }, false)
+    })
 }
 
-function registerOrderProductsFilling(plItems, registerOrderProductList, roSendProducts) {
-    Array.from(plItems).forEach(function(elt) {
-        //TODO OPTIMIZIROVATb!!!
+function registerOrderProductsFilling(plItems,
+    registerOrderProductList,
+    roSendProducts) {
+    Array.from(plItems).forEach(elt => {
         let id = elt.getAttribute('data-id');
         let weight = elt.getAttribute('data-weight');
         let name = elt.querySelector("div.elt_name");
         let eWeight = elt.querySelector("div.elt_weight");
         let cost = elt.querySelector("div.elt_price");
 
-        let ro_name = document.createElement('div');
-        ro_name.classList.add('elt_name');
-        ro_name.appendChild(document.createTextNode(name.textContent));
+        roSendProducts
+            .insertAdjacentHTML('afterbegin',
+                `<input type="text" hidden name="order[]" value={"id":"${id}","weight":"${weight}"}></input>`);
 
-        let ro_eWeight = document.createElement('div');
-        ro_eWeight.classList.add('elt_weight');
-        ro_eWeight.appendChild(document.createTextNode(eWeight.textContent));
-
-        let ro_cost = document.createElement('div');
-        ro_cost.classList.add('elt_price');
-        ro_cost.appendChild(document.createTextNode(cost.textContent));
-
-
-
-        let order = document.createElement('input');
-        order.setAttribute('type', 'text');
-        order.hidden = true;
-        order.setAttribute('name', 'order[]');
-        order.setAttribute("value", `{"id":"${id}","weight":"${weight}"}`)
-        roSendProducts.appendChild(order);
-
-
-        let roProductListItem = document.createElement('div');
-        roProductListItem.classList.add('ro_product_list__item');
-
-        roProductListItem.appendChild(ro_name);
-        roProductListItem.appendChild(ro_eWeight);
-        roProductListItem.appendChild(ro_cost);
-        roProductListItem.setAttribute('data-id', id);
-        roProductListItem.setAttribute('data-weight', weight);
-        registerOrderProductList.appendChild(roProductListItem);
+        let roProductListItem = `
+            <div class="ro_product_list__item" data-id="${id}" data-weight="${weight}">
+            <div class="elt_name">${name.textContent}</div>
+            <div class="elt_weight">${eWeight.textContent}</div>
+            <div class="elt_price">${cost.textContent}</div>
+        </div>`
+        registerOrderProductList.insertAdjacentHTML('afterbegin', roProductListItem);
     });
 }
 

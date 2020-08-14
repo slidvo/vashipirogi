@@ -1,4 +1,6 @@
-function buttonAddProductToCartHandler(productList, totalPriceItem, button,
+function buttonAddProductToCartHandler(productList,
+    totalPriceItem,
+    button,
     weightButtons,
     productName,
     text,
@@ -8,7 +10,7 @@ function buttonAddProductToCartHandler(productList, totalPriceItem, button,
 
         if (!text.classList.contains(st)) {
 
-            weightButtons.forEach((elt) => {
+            weightButtons.forEach(elt => {
                 if (isSelected(elt, st)) {
                     text.classList.add(st);
                     text.textContent = 'В корзине';
