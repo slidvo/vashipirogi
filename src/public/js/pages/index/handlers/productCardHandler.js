@@ -1,7 +1,7 @@
 function productCardHandler(productList, totalPriceItem) {
     let st = "selected"
     let prCards = document.querySelectorAll("div.product-card");
-    Array.from(prCards).forEach((productCard) => {
+    Array.from(prCards).forEach(productCard => {
         let pid = productCard.getAttribute('data-pid');
         let productName = productCard.querySelector("div.product_name").innerText;
         let node_weights = productCard.querySelectorAll("div.weights div.weights_item");

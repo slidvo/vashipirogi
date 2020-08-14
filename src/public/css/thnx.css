@@ -1,3 +1,10 @@
+:root {
+    --main-bg-color: #faf0e4;
+    --main-font-color: #532921;
+    --sec-font-color: #c3651f;
+    --main-hf-shadow: rgba(83, 41, 33, 0.5);
+}
+
 @font-face {
     font-family: 'RawerCR';
     src: url('../fonts/RawerCR.ttf');
@@ -5,6 +12,7 @@
 
 body {
     font-family: 'RawerCR', Helvetica, sans-serif;
+    background-color: var(--main-bg-color);
 }
 
 .thnx_grid {
@@ -18,7 +26,7 @@ body {
     text-align: center;
     font-size: 48px;
     font-weight: bold;
-    color: #4a221a;
+    color: var(--main-font-color);
 }
 
 .thnx_grid__item>img {
@@ -27,14 +35,14 @@ body {
 
 .thnx_grid__item>a {
     text-decoration: none;
-    color: #b95813;
+    color: var(--sec-font-color);
     font-size: 36px;
     font-weight: 600;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .thnx_grid__item>a:hover {
-    background-color: #c4a57c;
-    color: white;
+    background-color: var(--main-font-color);
+    color: whitesmoke;
 }

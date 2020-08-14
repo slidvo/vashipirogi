@@ -14,19 +14,15 @@ function isSelected(elt, st) {
 function removeBasketChildren(pl) {
     let basketInfo = pl.parentElement;
     let totalPrice = basketInfo.querySelector("div.total_price__item");
+    let btnSelected = document.querySelectorAll("div.btn_add_text.selected");
 
     removeChildren(pl);
-    totalPrice.textContent = 0;
+    totalPrice.innerHTML = 0;
 
-    let btnSelected = document.querySelectorAll("div.btn_add_text");
-    //TODO Function for change statuses of buttons
-    Array.from(btnSelected).forEach(function(elt) {
-        if (isSelected(elt, 'selected')) {
-            elt.classList.remove('selected'); //TODO : Must add const st
-            elt.textContent = 'Выбрать';
-        }
+    Array.from(btnSelected).forEach(elt => {
+        elt.classList.remove('selected'); //TODO : Must add const st
+        elt.innerHTML = 'Выбрать';
     });
-
 }
 
 function removeChildren(node) {
@@ -34,8 +30,8 @@ function removeChildren(node) {
         node.removeChild(node.firstChild)
     }
 }
-//TODO оптимизировать функцию
-function basketFilling(pl, tPi, product) { //sp.id name weight price
+
+function basketFilling(pl, tPi, product) {
     let productListItem = document.createElement('div');
     productListItem.classList.add('product_list__item');
     let elt_remove = document.createElement("div");

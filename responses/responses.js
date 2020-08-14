@@ -17,9 +17,9 @@ get.index = function(req, res) {
     })
 }
 get.thnx = function(req, res) {
-    if (req.cookies["orderId"]) {
-        let id = req.cookies["orderId"];
-        res.clearCookie("orderId", { httpOnly: true })
+    if (req.cookies["order_id"]) {
+        let id = req.cookies["order_id"];
+        res.clearCookie("order_id", { httpOnly: true })
         res.render('pages/thnx.ejs', {
             id: id
         })
@@ -34,10 +34,10 @@ let post = Object.create(null);
 let create = Object.create(null);
 
 create.order = function(req, res) {
-    let orderId = Date.now();
-    sendOrderInfo(req.body, orderId);
+    let order_id = Date.now();
+    sendOrderInfo(req.body, order_id);
 
-    res.cookie('orderId', orderId, { httpOnly: true })
+    res.cookie('order_id', order_id, { httpOnly: true })
     res.redirect(303, "/thnx")
 }
 
