@@ -4,3 +4,4 @@ node_modules/
 configs/nmconf.js
 configs/tlgconf.js
 nohup*
+views/metrika/
