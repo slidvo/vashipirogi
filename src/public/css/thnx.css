@@ -30,7 +30,7 @@ body {
 }
 
 .thnx_grid__item>img {
-    width: 480px;
+    max-width: 320px;
 }
 
 .thnx_grid__item>a {

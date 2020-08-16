@@ -6,44 +6,50 @@
 
 <body>
 
-    <%-include('../partials/cookies.ejs')%>
-
-    <div id="roof"></div>
-
-    <div class="cart">
-        <%- include('../partials/cart.ejs')%>
-    </div>
-
-    <div id="page-4" class="page-4" style="display:none">
-        <%- include('../partials/index/basket.ejs')%>
-    </div>
-
-    <div id="register_order" class="register_order" style="display:none">
-        <%- include('../partials/index/register_order.ejs')%>
-    </div>
+    <%if (cmsg){%>
+        <%-include('../partials/cookies.ejs')%>
+            <%}%>
 
 
-    <div class="grid-container">
-        <div id="header" class="header">
-            <%- include("../partials/header.ejs")%>
-        </div>
-        <!-- Sweet pies page start-->
-        <div id="page-1" class="page-1">
-            <%- include("../partials/index/sweet_pies.ejs")%>
-        </div>
-        <!-- Sweet pies page end -->
-        <!-- Vegetable pies page start -->
-        <div id="page-2" class="page-2">
-            <%- include("../partials/index/vegetable_pies.ejs")%>
-        </div>
-        <!-- Vegetable pies page end -->
-        <!-- Hearty pies page start -->
-        <div id="page-3" class="page-3">
-            <%- include("../partials/index/hearty_pies.ejs")%>
-        </div>
-        <!-- Hearty pies page end -->
-        <%-include('../partials/menu.ejs')%>
-    </div>
+                <div id="roof"></div>
+
+                <div class="cart">
+                    <%- include('../partials/cart.ejs')%>
+                </div>
+
+                <div id="page-4" class="page-4" style="display:none">
+                    <%- include('../partials/index/basket.ejs')%>
+                </div>
+
+                <div id="register_order" class="register_order" style="display:none">
+                    <%- include('../partials/index/register_order.ejs')%>
+                </div>
+
+
+                <div class="grid-container">
+                    <div id="header" class="header">
+                        <%- include("../partials/header.ejs")%>
+                    </div>
+
+                    <!-- Sweet pies page start-->
+                    <div id="page-1" class="page-1">
+                        <%- include("../partials/index/sweet_pies.ejs")%>
+                    </div>
+                    <!-- Sweet pies page end -->
+                    <!-- Vegetable pies page start -->
+                    <div id="page-2" class="page-2">
+                        <%- include("../partials/index/vegetable_pies.ejs")%>
+                    </div>
+                    <!-- Vegetable pies page end -->
+                    <!-- Hearty pies page start -->
+                    <div id="page-3" class="page-3">
+                        <%- include("../partials/index/hearty_pies.ejs")%>
+                    </div>
+                    <!-- Hearty pies page end -->
+                    <%-include('../partials/menu.ejs')%>
+                </div>
+
+                <%-include('../partials/footer.ejs')%>
 </body>
 <%-include("../partials/index/scripts.ejs")%>
 

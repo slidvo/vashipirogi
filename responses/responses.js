@@ -7,11 +7,13 @@ let get = Object.create(null);
 get.index = function(req, res) {
     let cakes = new Cake();
     let prices = new Price();
+
     cakes.getCakes((cakes) => {
         prices.getPrices((prices) => {
             res.render('pages/index', {
                 products: cakes,
-                prices: prices
+                prices: prices,
+                cmsg: req.cookies["cmsg"] == 'false' ? false : true
             })
         })
     })

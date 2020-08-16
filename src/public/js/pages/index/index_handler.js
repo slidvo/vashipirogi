@@ -60,8 +60,20 @@ function basketFilling(pl, tPi, product) {
     tPi.textContent = result;
 
     //cart_count
-    let cartCount = document.querySelector('.cart_count')
-    cartCount.innerHTML = Number(cartCount.textContent) + 1
+    cartCounter(document.querySelector('.cart_count'), '+')
+}
+
+function cartCounter(cart_count, sign) {
+    switch (sign) {
+        case '+':
+            cart_count.innerHTML = parseInt(cart_count.textContent) + 1
+            break
+        case '-':
+            cart_count.innerHTML = parseInt(cart_count.textContent) - 1
+            break
+        default:
+            console.log(`This sign ${sign} does not supporting`)
+    }
 }
 
 function eltRemoveListener(elt, tPi) {
@@ -81,14 +93,10 @@ function eltRemoveListener(elt, tPi) {
         parent.removeChild(plItem);
         setDeliveryPrice(tPi.textContent, dlCost, dlCurr)
 
-        document
-            .getElementById('page-4')
-            .style
-            .display = !parent.firstChild ? 'none' : ''
+        document.getElementById('page-4').style.display = !parent.firstChild ? 'none' : ''
 
         //cart_count
-        let cartCount = document.querySelector('.cart_count')
-        cartCount.innerHTML = Number(cartCount.textContent) - 1
+        cartCounter(document.querySelector('.cart_count'), '-')
 
 
     });
@@ -111,10 +119,10 @@ function setDeliveryPrice(total, dlCost, dlCurr) {
     }
 }
 
-function closeCookieMsg() {
-    document.getElementById('cmsgc').parentNode.parentNode.style.display = "none"
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-
 
 //Entry point main()
 (() => {
@@ -123,4 +131,5 @@ function closeCookieMsg() {
     productCardHandler(productList, totalPriceItem);
     scrollAnimation();
     bascketHandler(productList);
+    cookieCloseMsg();
 })()

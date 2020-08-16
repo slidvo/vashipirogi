@@ -4,11 +4,12 @@ div.navbar {
     width: 100vw;
     bottom: 0;
     grid-template-columns: repeat(3, 1fr);
-    background-color: white;
+    background-color: whitesmoke;
     grid-template-areas: ". links .";
     box-shadow: 0 0 8px var(--main-hf-shadow);
     height: 60px;
     border-radius: 5px 5px 0 0;
+    z-index: 1;
 }
 
 .navbar_links {
