@@ -4,7 +4,7 @@ div.navbar {
     width: 100vw;
     bottom: 0;
     grid-template-columns: repeat(3, 1fr);
-    background-color: whitesmoke;
+    background-color: rgba(250, 250, 250, 0.98);
     grid-template-areas: ". links .";
     box-shadow: 0 0 8px var(--main-hf-shadow);
     height: 60px;

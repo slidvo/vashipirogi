@@ -33,7 +33,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header" "p1" "p2" "p3" "footer";
+    grid-template-areas: "header" "p1" "p2" "p3";
     row-gap: 15px;
 }
 
@@ -64,9 +64,6 @@ body {
 }
 
 .social_links {
-    position: relative;
-    margin-top: 20px;
-    top: -60px;
     text-align: center;
     background-color: var(--main-font-color);
 }
@@ -110,10 +107,11 @@ body {
 }
 
 .footer {
-    grid-area: footer;
+    background: var(--main-font-color);
+    color: white;
     height: 120px;
-    background: rgb(244, 244, 244);
-    background: linear-gradient(0deg, rgba(232, 172, 142, 1) 0%, rgba(245, 210, 167, 1) 100%);
+    padding-top: 10px;
+    text-align: center;
 }
 
 .sp_title {

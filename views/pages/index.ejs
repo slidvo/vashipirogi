@@ -25,7 +25,9 @@
                     <%- include('../partials/index/register_order.ejs')%>
                 </div>
 
-
+                <div class="social_links">
+                    <%-include('../partials/social.ejs')%>
+                </div>
                 <div class="grid-container">
                     <div id="header" class="header">
                         <%- include("../partials/header.ejs")%>
@@ -46,10 +48,13 @@
                         <%- include("../partials/index/hearty_pies.ejs")%>
                     </div>
                     <!-- Hearty pies page end -->
-                    <%-include('../partials/menu.ejs')%>
-                </div>
 
-                <%-include('../partials/footer.ejs')%>
+                </div>
+                <div class="footer">
+                    <%-include('../partials/footer.ejs')%>
+                </div>
+                <%-include('../partials/menu.ejs')%>
+
 </body>
 <%-include("../partials/index/scripts.ejs")%>
 
