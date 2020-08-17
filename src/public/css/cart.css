@@ -6,6 +6,7 @@
     width: 65px;
     border-radius: 6px;
     grid-template-columns: repeat(2, 1fr);
+    z-index: 1;
 }
 
 .cart_count {

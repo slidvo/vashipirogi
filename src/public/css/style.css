@@ -33,12 +33,11 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header" "p1" "p2" "p3";
+    grid-template-areas: "header" "slider" "p1" "p2" "p3";
     row-gap: 15px;
 }
 
 .header {
-    width: 100vw;
     grid-area: header;
     background: whitesmoke;
     box-shadow: 0 0 8px var(--main-hf-shadow);
@@ -64,8 +63,11 @@ body {
 }
 
 .social_links {
+    display: flex;
     text-align: center;
     background-color: var(--main-font-color);
+    justify-content: center;
+    padding: 5px;
 }
 
 .social_links div {
@@ -301,7 +303,7 @@ body {
     }
 }
 
-@media screen and (max-width:950px) {
+@media screen and (max-width:980px) {
     .sp_content {
         grid-template-columns: 1fr 1fr;
     }
