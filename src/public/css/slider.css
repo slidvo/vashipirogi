@@ -12,6 +12,8 @@
     flex: 0 0 100%;
     max-width: 100%;
     padding: 10px;
+    color: whitesmoke;
+    text-shadow: 0 0 5px black;
 }
 
 .slider__item>div {
@@ -78,8 +80,4 @@
     font-size: 48px;
     text-align: center;
     justify-content: center;
-}
-
-.gifts {
-    font-size: 22px;
 }

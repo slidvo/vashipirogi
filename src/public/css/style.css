@@ -307,6 +307,9 @@ body {
     .sp_content {
         grid-template-columns: 1fr 1fr;
     }
+    .gifts {
+        font-size: 24px;
+    }
 }
 
 @media screen and (max-width:620px) {
