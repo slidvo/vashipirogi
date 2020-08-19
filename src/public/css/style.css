@@ -33,7 +33,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header" "slider" "p1" "p2" "p3";
+    grid-template-areas: "header" "grid-slider" "p1" "p2" "p3";
     row-gap: 15px;
 }
 
@@ -83,6 +83,12 @@ body {
     text-decoration: none;
     font-size: 20px;
     font-weight: 600;
+}
+
+.grid-slider {
+    grid-area: grid-slider;
+    display: grid;
+    justify-content: center;
 }
 
 .page-1 {
@@ -324,10 +330,32 @@ body {
         grid-template-columns: 1fr 15px;
         align-items: center;
     }
+    .discount_birth>img {
+        width: 100%;
+    }
+    .db_txt {
+        font-size: 32px;
+    }
+    .db_txt2 {
+        font-size: 27px;
+        right: 50px;
+        bottom: 10px;
+    }
+    .db_back2 {
+        width: 96%;
+    }
 }
 
 @media screen and (max-width:360px) {
     .header_menu_link {
         grid-template-columns: repeat(3, 100px);
+    }
+    .db_txt {
+        font-size: 26px;
+    }
+    .db_txt2 {
+        font-size: 24px;
+        right: 40px;
+        bottom: 10px;
     }
 }

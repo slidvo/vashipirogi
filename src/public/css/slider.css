@@ -1,6 +1,7 @@
 .slider {
     position: relative;
     overflow: hidden;
+    max-width: 790px;
 }
 
 .slider__wrapper {
@@ -74,10 +75,34 @@
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 
-.slider__item>div {
+.discount_birth {
+    position: relative;
     display: flex;
-    align-items: center;
-    font-size: 48px;
-    text-align: center;
     justify-content: center;
+}
+
+.discount_birth>img {
+    width: 50%;
+}
+
+.db_txt {
+    position: absolute;
+    top: 15px;
+    font-size: 36px;
+    font-weight: 600px;
+}
+
+.db_txt2 {
+    position: absolute;
+    text-align: center;
+    bottom: 15px;
+    right: 50px;
+    font-size: 28px;
+}
+
+.db_back2 {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    width: 50%;
 }
