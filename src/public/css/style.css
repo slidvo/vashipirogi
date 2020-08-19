@@ -330,19 +330,23 @@ body {
         grid-template-columns: 1fr 15px;
         align-items: center;
     }
-    .discount_birth>img {
+    .brth_item>img {
         width: 100%;
     }
-    .db_txt {
-        font-size: 32px;
+    .brth_item>div {
+        position: absolute;
+        top: 15px;
+        font-size: 22px;
     }
-    .db_txt2 {
-        font-size: 27px;
-        right: 50px;
+    .birth_item__footer>img {
+        width: 100%;
+    }
+    .birth_item__footer>span {
+        font-size: 20px;
+        right: 55px;
+        right: 0;
+        left: 5px;
         bottom: 10px;
-    }
-    .db_back2 {
-        width: 96%;
     }
 }
 
@@ -350,12 +354,7 @@ body {
     .header_menu_link {
         grid-template-columns: repeat(3, 100px);
     }
-    .db_txt {
-        font-size: 26px;
-    }
-    .db_txt2 {
-        font-size: 24px;
-        right: 40px;
-        bottom: 10px;
+    .birth_item__footer>span {
+        font-size: 16px;
     }
 }
