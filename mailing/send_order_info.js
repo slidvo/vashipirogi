@@ -90,13 +90,19 @@ module.exports = function sendOrderInfo(orderData, orderId) {
     </table>
     ${table}`;
 
-    tlg_message += "----------------------------------\n";
-    tlg_message += `Телефон : ${orderData.phone}\n`;
-    tlg_message += `Улица : ${orderData.street}\n`;
-    tlg_message += `Дом : ${orderData.build}\n`;
-    tlg_message += `Подъезд : ${orderData.entrance}\n`;
-    tlg_message += `Квартира : ${orderData.flat}\n`;
-    tlg_message += `Комментарий : ${orderData.comment}\n`;
+    tlg_message += `----------------------------------
+Телефон: ${orderData.phone}
+Улица: ${orderData.street}
+Дом: ${orderData.build}
+Квартира: ${orderData.flat}
+Подъезд: ${orderData.entrance}
+Комментарий: ${orderData.comment}`;
+    // tlg_message += `Телефон : ${orderData.phone}\n`;
+    // tlg_message += `Улица : ${orderData.street}\n`;
+    // tlg_message += `Дом : ${orderData.build}\n`;
+    // tlg_message += `Квартира : ${orderData.flat}\n`;
+    // tlg_message += `Подъезд : ${orderData.entrance}\n`;
+    // tlg_message += `Комментарий : ${orderData.comment}\n`;
 
     EMAIL_SENDER.sendMessageToEmail(finalMessage, orderId);
     TELEGRAM_SENDER.sendMessageToTelegramChannel(tlg_message);

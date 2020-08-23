@@ -7,12 +7,11 @@
     grid-template-rows: repeat(3, 1fr);
     z-index: 2;
     background-color: rgba(180, 180, 180, 0.9);
-    grid-template-areas: ". . . . . . ." " . . . roiA . . ." ". . . . . . .";
-    align-items: center;
+    grid-template-areas: ". . . . . . ." ". . . roiA . . ." ". . . . . . .";
     overflow-y: scroll;
 }
 
-#register_order .register_order__info {
+.register_order__info {
     grid-area: roiA;
     display: grid;
     min-width: 300px;
@@ -49,10 +48,15 @@
     padding: 5px;
 }
 
+.ro_city {
+    position: relative;
+}
+
 .ro_city select {
-    /* grid-area: roci; */
+    position: absolute;
+    left: 5px;
     font-size: 18px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .ro_delivery {
@@ -104,8 +108,14 @@
     height: 40px;
 }
 
-@media screen and (max-width:950px) {
+#build,
+#entrance,
+#flat {
+    width: 90px;
+}
+
+@media screen and (max-width:359px) {
     #register_order {
-        grid-template-areas: ". . . . . . ." " roiA roiA roiA roiA roiA roiA roiA" ". . . . . . .";
+        grid-template-areas: ". . . . . . ." "roiA roiA roiA roiA roiA roiA roiA" ". . . . . . .";
     }
 }

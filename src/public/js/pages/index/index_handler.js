@@ -124,6 +124,19 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
+function phoneMask() {
+    let pn = document.getElementById("phone")
+    pn.addEventListener('blur', () => {
+        let res = '';
+        let t = pn.value.split(' ');
+        t.forEach(e => { res += e })
+        if (t[0] != pn.value) {
+            console.log(t)
+            pn.value = res;
+        }
+    }, false)
+}
+
 //Entry point main()
 (() => {
     let productList = document.querySelector('div.basket_info div.product_list');
@@ -132,4 +145,5 @@ function getCookie(name) {
     scrollAnimation();
     bascketHandler(productList);
     cookieCloseMsg();
+    phoneMask();
 })()
